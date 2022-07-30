@@ -1,0 +1,97 @@
+.siteLogo {
+    width: 240px;
+    height: 110px;
+  }
+  
+  .navbar1 {
+    background-color: rgb(180, 180, 180);
+  }
+  
+  .btns {
+    font-size: 20px;
+    border-radius: 3px;
+    border: 1px solid black;
+  }
+  
+  .serachDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .searchBar {
+    width: 70%;
+    margin-right: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 20px;
+  }
+  
+  .profileIconAndCart {
+    margin-left: 10px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .profileCartDiv {
+    display: flex;
+  }
+  
+  .navBarOption {
+    font-size: 25px;
+    color: black;
+  }
+  
+  .dropDownNavOption {
+    color: black;
+  }
+  
+  .navbar-nav {
+    --bs-nav-link-color: black
+  }
+
+
+
+  @media (max-width: 1201px) {
+    .navBarOption {
+      font-size: 20px;
+    }
+  
+    .profileIconAndCart {
+      width: 45px;
+      height: 45px;
+    }
+  
+  }
+  
+
+  @media (max-width: 992px) {
+    .navBarOption {
+      font-size: 14px;
+      text-align: center;
+      font-weight: bold;
+    }
+  
+    .profileIconAndCart {
+      width: 35px;
+      height: 35px;
+    } 
+  }
+  
+  
+  @media (max-width: 768px) {
+    .profileCartDiv {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .navBarOption {
+      font-weight: normal;
+      font-size: 20px;
+    }
+  
+    .dropDownNavOption {
+      text-align: center;
+    }
+  }
