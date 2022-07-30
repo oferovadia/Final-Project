@@ -1,0 +1,19 @@
+.productImg{
+    width: 100vw;
+    height: 300px;
+}
+
+.mainCarouselDiv{
+  border: 2px solid black;
+  width: 25%;
+}
+.carousel-control-prev-icon{
+  background-color: black;
+}
+.carousel-control-next-icon{
+  background-color: black;
+}
+.productsListDiv{
+  display: flex;
+  justify-content: space-evenly;
+}
