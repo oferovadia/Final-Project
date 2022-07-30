@@ -1,0 +1,93 @@
+.mainLoginDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0px;
+  }
+  
+  .loginHeader {
+    border: 2px solid black;
+    margin: 30px 0px;
+    width: 25%;
+    text-align: center;
+  }
+  
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    width: 40%;
+  }
+  
+  .form-floating {
+    font-size: 20px;
+    margin: 20px 15px;
+  }
+  .floatingText{
+    font-size: 15px;
+  }
+  
+  .forgotPassword{
+    text-align: center;
+    font-size: 20px;
+  }
+  .loginFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px;
+  }
+  
+  .loginBtn {
+    font-size: 20px;
+    border-radius: 7px;
+    width: 40%;
+    background-color: rgb(79, 79, 255);
+    color: white;
+  }
+  
+  .loginBtn:hover {
+    background-color: rgb(108, 108, 254);
+  }
+  
+  .signUpLink {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+
+
+  @media (max-width: 992px) {
+    .loginForm {
+      width: 50%;
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .signUpLink {
+      font-size: 18px;
+      margin-top: 5px;
+    }
+    .forgotPassword{
+      font-size: 18px;
+    }
+    .loginForm {
+      width: 75%;
+      height: 380px;
+    }
+    .form-floating {
+      font-size: 20px;
+      margin: 15px 15px;
+    }
+  }
+  
+
+  @media (max-width: 500px) {
+    .form-floating {
+      font-size: 15px;
+    }
+    .signUpLink {
+      text-align: center;
+    }
+  }
