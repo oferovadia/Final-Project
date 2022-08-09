@@ -9,15 +9,14 @@ function ProductListCard(props) {
   return (
     <div className='cardDiv col-sm-6 col-md-4'>
       <Card className='h-100'>
-
-        <Card.Img variant="top" src={props.image} />
+        <Card.Img className='cardProductImage' variant="top" src={props.image} />
         <Card.Body className='productCardFooter'>
           <Card.Title className='cardListTitle'>{props.name}</Card.Title>
           <ButtonGroup className='productButtons' aria-label="Basic example">
-            <Button variant="secondary">Add To Cart</Button>
-            <Button variant="secondary">Buy Now</Button>
+            <Button className='cardButtons' variant="secondary">Add To Cart</Button>
+            <Button className='cardButtons' variant="secondary">Buy Now</Button>
           </ButtonGroup>
-          <BiHeartCircle className='heartIcon' size={50}/>
+          <BiHeartCircle className='heartIcon' size={50} />
         </Card.Body>
       </Card>
     </div>

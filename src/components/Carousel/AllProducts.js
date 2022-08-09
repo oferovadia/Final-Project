@@ -1,5 +1,4 @@
 import React from 'react'
-import productsImages from '../../DAL/productsImages'
 import ProductListCard from './ProductListCard'
 import "./css.css";
 import Container from 'react-bootstrap/esm/Container';
