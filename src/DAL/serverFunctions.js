@@ -4,8 +4,8 @@ export function getProducts() {
         .then(products => (products))
 }
 
-export function getProductByID(id) {
-    return fetch(`http://localhost:3100/api/products/${id}`)
+export function getProductByName(name) {
+    return fetch(`http://localhost:3100/api/products/${name}`)
         .then(response => response.json())
         .then(products => (products))
 }

@@ -4,7 +4,7 @@ import ProductListCard from './ProductListCard'
 import "./css.css";
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/esm/Row';
-import { getProducts } from '../../DAL/serverFunctions';
+import { getProducts, getProductByName } from '../../DAL/serverFunctions';
 import { useState, useEffect } from 'react';
 
 function AllProducts() {

@@ -4,7 +4,7 @@
   }
   
   .navbar1 {
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(36, 36, 36);
   }
   
   .btns {
@@ -28,7 +28,7 @@
   }
   
   .profileIconAndCart {
-    margin-left: 10px;
+    margin-left: 12px;
     width: 60px;
     height: 60px;
     color: white;
@@ -40,15 +40,15 @@
   
   .navBarOption {
     font-size: 25px;
-    color: black;
+    color: white;
   }
   
   .dropDownNavOption {
-    color: black;
+    color: black  ;
   }
   
   .navbar-nav {
-    --bs-nav-link-color: black
+    --bs-nav-link-color: white
   }
 
 
