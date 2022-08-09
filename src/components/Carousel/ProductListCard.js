@@ -15,13 +15,13 @@ function ProductListCard(props) {
               alt={props.name}
             />
           </Carousel.Item>
-          <Carousel.Item className='carouselItems'>
+{/*          <Carousel.Item className='carouselItems'>
             <img
               className="d-block w-100 productImg"
               src={props.image2}
               alt={props.name}
             />
-          </Carousel.Item>
+  </Carousel.Item>*/}
         </Carousel>      <Card.Body>
           <Card.Title className='cardListTitle'>{props.name}</Card.Title>
           <Button className='productCardButton' variant="primary">Go somewhere</Button>
