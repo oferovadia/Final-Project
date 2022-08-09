@@ -23,7 +23,7 @@ function AllProducts() {
       <Row className='productsListRows'>
         {
           products.map(({ product_name, photo_source }, index) =>
-            <ProductListCard key={index} name={product_name} image1={photo_source}></ProductListCard>)
+            <ProductListCard key={index} name={product_name} image={photo_source}></ProductListCard>)
         }
       </Row>
     </Container>
