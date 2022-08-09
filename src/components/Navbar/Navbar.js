@@ -5,7 +5,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Form } from 'react-bootstrap';
 import heroLogo from './heroLogo.png'; // with import
 import whiteLogo from './whiteLogo.png'; // with import
-import { BsFillPersonFill } from "react-icons/bs";
+import { BsFillPersonFill, BsCart2, BsFillSuitHeartFill } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
 
 
 import "./Navbar.css";
@@ -32,14 +33,14 @@ function NavbarComp() {
                     </Navbar.Collapse>
                     <div className='profileCartDiv'>
                         <div>
-                            <img className='profileIconAndCart' src='https://cdn.icon-icons.com/icons2/1904/PNG/512/profile_121261.png' alt="MyProfile"></img>
                             <BsFillPersonFill className='profileIconAndCart'/>
                             </div>
                         <div>
-                            <img className='profileIconAndCart' src='https://icon-library.com/images/19653-200_62660.png' alt="Favorites"></img>
+                            <BsCart2 className='profileIconAndCart'/>
+
                         </div>
                         <div>
-                            <img className='profileIconAndCart' src='https://cdn-icons-png.flaticon.com/512/1413/1413908.png' alt="Cart"></img>
+                            <FaHeart className='profileIconAndCart'/>
                         </div>
 
                     </div>
