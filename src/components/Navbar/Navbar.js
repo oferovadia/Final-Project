@@ -34,7 +34,7 @@ function NavbarComp() {
                         <div>
                             <img className='profileIconAndCart' src='https://cdn.icon-icons.com/icons2/1904/PNG/512/profile_121261.png' alt="MyProfile"></img>
                             <BsFillPersonFill className='profileIconAndCart'/>
-                        </div>
+                            </div>
                         <div>
                             <img className='profileIconAndCart' src='https://icon-library.com/images/19653-200_62660.png' alt="Favorites"></img>
                         </div>
