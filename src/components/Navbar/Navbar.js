@@ -4,6 +4,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Form } from 'react-bootstrap';
 import heroLogo from './heroLogo.png'; // with import
+import whiteLogo from './whiteLogo.png'; // with import
+import { BsFillPersonFill } from "react-icons/bs";
+
+
 import "./Navbar.css";
 
 function NavbarComp() {
@@ -11,7 +15,7 @@ function NavbarComp() {
         <div>
             <Navbar className='navbar1' collapseOnSelect expand="md" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#Home"><img className='siteLogo' src={heroLogo} alt='hero'></img></Navbar.Brand>
+                    <Navbar.Brand href="#Home"><img className='siteLogo' src={whiteLogo} alt='hero'></img></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -29,6 +33,7 @@ function NavbarComp() {
                     <div className='profileCartDiv'>
                         <div>
                             <img className='profileIconAndCart' src='https://cdn.icon-icons.com/icons2/1904/PNG/512/profile_121261.png' alt="MyProfile"></img>
+                            <BsFillPersonFill className='profileIconAndCart'/>
                         </div>
                         <div>
                             <img className='profileIconAndCart' src='https://icon-library.com/images/19653-200_62660.png' alt="Favorites"></img>

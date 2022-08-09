@@ -1,4 +1,3 @@
-import { Nav } from 'react-bootstrap';
 import AllProducts from './components/Carousel/AllProducts';
 import './App.css';
 import Login from './components/Login/Login';
