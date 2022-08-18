@@ -1,23 +1,51 @@
 import './ProductPage.css';
-
+import { Carousel, Container, Row, Col } from 'react-bootstrap';
 import React from 'react'
+import { BiHeartCircle } from "react-icons/bi";
 
 function ProductPage() {
     return (
-        <div class="card mb-3" style={{max-width: '540px'}}>
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="..." />
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Container className='productDiv'>
+            <Row>
+                <Col lg={6} md={6} sm={6} xs={12}>
+                    <Carousel className='productCarousel'>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="https://i5.walmartimages.com/asr/265dcea9-e647-46b9-b2c2-496797a82a5a_1.7493808aeff712fffc0c01c4a56f7419.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+                                alt="Second slide"
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="https://i5.walmartimages.com/asr/137c3e96-38fd-4f4a-b83c-6afc95bf44cb_1.e8cfa4bfbe55389da3f06e7dd9307856.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+                                alt="Third slide"
+                            />
+                        </Carousel.Item>
+                    </Carousel>
+                </Col>
+                <Col lg={6} md={6} sm={6} xs={12}>
+                    <Row className='itemTitle'>
+                        <h1>Deadpool Plushie</h1>
+                    </Row>
+                    <Row className='itemDescription'>
+                        <p>ITEM DESCRIPTION SFJSODFNAOSDJFNOASDJFNOJASDFOSDFONADSFOJNDSFKSJDMFSDF
+                            SDFKSJDFNSDJFNKSJDFNKJSDNFKJKODSMFMOSKDMFOKSDMFOKMDSOFKMOKSDNFKJSDNFJKSDF
+                            SDFJNSDJFNSDOFSDNFOJSDNFOJSDNFSDFSDFKMDOSF</p>
+                    </Row>
+                    <Row className='itemButtonsRow'>
+                        <button className='itemButtons'>heart</button>
+                        <div className='quantityAndAddDiv'>
+                            <button>-</button>
+                            <span>1</span>
+                            <button>+</button>
+                        </div>
+                        <button className='itemButtons'>add to cart</button>
+                    </Row>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
