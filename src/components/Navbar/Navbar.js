@@ -2,11 +2,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Form } from 'react-bootstrap';
+import { Form, Popover, OverlayTrigger } from 'react-bootstrap';
 import heroLogo from './heroLogo.png'; // with import
 import whiteLogo from './whiteLogo.png'; // with import
 import { BsFillPersonFill, BsCart2, BsFillSuitHeartFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 import "./Navbar.css";
@@ -20,29 +21,28 @@ function NavbarComp() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link className='navBarOption' href="#Home">Home</Nav.Link>
-                            <Nav.Link className='navBarOption' href="#AboutUs">About Us</Nav.Link>
+                            <Nav.Link className='navBarOption' as={Link} to='/login'>Home</Nav.Link>
+                            <Nav.Link className='navBarOption' as={Link} to='/login'>About Us</Nav.Link>
                             <NavDropdown className='navBarOption' title="Categories" id="collasible-nav-dropdown">
-                                <NavDropdown.Item className='dropDownNavOption' href="#action/3.1">Shirts</NavDropdown.Item>
-                                <NavDropdown.Item className='dropDownNavOption' href="#action/3.1">Comics</NavDropdown.Item>
-                                <NavDropdown.Item className='dropDownNavOption' href="#action/3.1">Figures</NavDropdown.Item>
+                                <NavDropdown.Item className='dropDownNavOption' as={Link} to='/product'>Clothes</NavDropdown.Item>
+                                <NavDropdown.Item className='dropDownNavOption' as={Link} to='/login'>Comics</NavDropdown.Item>
+                                <NavDropdown.Item className='dropDownNavOption' as={Link} to='/login'>Figures</NavDropdown.Item>
+                                <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products'>All Proudcts</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link className='navBarOption' href="#MyProfile">My Profile</Nav.Link>
-                            <Nav.Link className='navBarOption' href="#ContactUs">Contact Us</Nav.Link>
+                            <Nav.Link className='navBarOption' as={Link} to='/login'>My Profile</Nav.Link>
+                            <Nav.Link className='navBarOption' as={Link} to='/login'>Contact Us</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                     <div className='profileCartDiv'>
-                        <div>
-                            <BsFillPersonFill className='profileIconAndCart'/>
-                            </div>
-                        <div>
-                            <BsCart2 className='profileIconAndCart'/>
-
-                        </div>
-                        <div>
-                            <FaHeart className='profileIconAndCart'/>
-                        </div>
-
+                        <Nav.Link as={Link} to='/likedProducts'>
+                            <BsFillPersonFill className='profileIconAndCart' />
+                        </Nav.Link>
+                        <Nav.Link as={Link} to='/myCart'>
+                            <BsCart2 className='profileIconAndCart' />
+                        </Nav.Link>
+                        <Nav.Link as={Link} to='/likedProducts'>
+                            <FaHeart className='profileIconAndCart' />
+                        </Nav.Link>
                     </div>
                 </Container>
             </Navbar>
