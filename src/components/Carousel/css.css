@@ -19,6 +19,9 @@
   top: 0px;
   right: 0px;
 }
+.heartIcon:hover{
+  color: red;
+}
 .mainCarouselDiv {
   border: 2px solid black;
   width: 25%;
