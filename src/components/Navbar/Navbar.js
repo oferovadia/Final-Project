@@ -3,7 +3,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Form, Popover, OverlayTrigger } from 'react-bootstrap';
-import heroLogo from './heroLogo.png'; // with import
 import whiteLogo from './whiteLogo.png'; // with import
 import { BsFillPersonFill, BsCart2, BsFillSuitHeartFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
@@ -22,7 +21,7 @@ function NavbarComp() {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link className='navBarOption' as={Link} to='/login'>Home</Nav.Link>
-                            <Nav.Link className='navBarOption' as={Link} to='/login'>About Us</Nav.Link>
+                            <Nav.Link className='navBarOption' as={Link} to='/about'>About Us</Nav.Link>
                             <NavDropdown className='navBarOption' title="Categories" id="collasible-nav-dropdown">
                                 <NavDropdown.Item className='dropDownNavOption' as={Link} to='/product'>Clothes</NavDropdown.Item>
                                 <NavDropdown.Item className='dropDownNavOption' as={Link} to='/login'>Comics</NavDropdown.Item>

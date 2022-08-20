@@ -1,0 +1,17 @@
+.aboutTitle{
+    text-align: center;
+    font-size: 65px;
+}
+
+.aboutUsContainer p{
+    font-size: 30px;
+}
+
+.captainSalute{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.aboutUsDescription{
+    text-align: center;
+}
