@@ -7,7 +7,8 @@ import whiteLogo from './whiteLogo.png'; // with import
 import { BsFillPersonFill, BsCart2, BsFillSuitHeartFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import "./Navbar.css";
 
@@ -33,15 +34,28 @@ function NavbarComp() {
                         </Nav>
                     </Navbar.Collapse>
                     <div className='profileCartDiv'>
-                        <Nav.Link as={Link} to='/likedProducts'>
-                            <BsFillPersonFill className='profileIconAndCart' />
-                        </Nav.Link>
                         <Nav.Link as={Link} to='/myCart'>
                             <BsCart2 className='profileIconAndCart' />
                         </Nav.Link>
                         <Nav.Link as={Link} to='/likedProducts'>
                             <FaHeart className='profileIconAndCart' />
                         </Nav.Link>
+                        <Nav.Link as={Link} to='/likedProducts'>
+                            <Dropdown>
+                                <Dropdown.Toggle className='userDropdown'>
+                                    <BsFillPersonFill className='profileIconAndCart' />
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <NavDropdown.Item className='dropDownNavOption' as={Link} to='/login'>Login</NavDropdown.Item>
+                                    <NavDropdown.Item className='dropDownNavOption' as={Link} to='/signUp'>Sign Up</NavDropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </Nav.Link>
+                        
+                        {/*<Nav.Link as={Link} to='/likedProducts'>
+                            <BsFillPersonFill className='profileIconAndCart' />
+    </Nav.Link>*/}
+
                     </div>
                 </Container>
             </Navbar>
