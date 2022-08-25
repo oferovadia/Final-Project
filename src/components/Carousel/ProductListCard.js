@@ -7,7 +7,7 @@ import { BiHeartCircle } from "react-icons/bi";
 
 function ProductListCard(props) {
   return (
-    <div className='cardDiv col-sm-6 col-md-4'>
+    <div className='cardDiv col-sm-6 col-md-4 col-lg-3'>
       <Card className='h-100'>
         <Card.Img className='cardProductImage' variant="top" src={props.image} />
         <Card.Body className='productCardFooter'>
