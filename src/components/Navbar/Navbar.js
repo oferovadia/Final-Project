@@ -40,7 +40,7 @@ function NavbarComp() {
                         <Nav.Link as={Link} to='/likedProducts'>
                             <FaHeart className='profileIconAndCart' />
                         </Nav.Link>
-                        <Nav.Link as={Link} to='/likedProducts'>
+                        <Nav.Link>
                             <Dropdown>
                                 <Dropdown.Toggle className='userDropdown'>
                                     <BsFillPersonFill className='profileIconAndCart' />
@@ -51,11 +51,6 @@ function NavbarComp() {
                                 </Dropdown.Menu>
                             </Dropdown>
                         </Nav.Link>
-                        
-                        {/*<Nav.Link as={Link} to='/likedProducts'>
-                            <BsFillPersonFill className='profileIconAndCart' />
-    </Nav.Link>*/}
-
                     </div>
                 </Container>
             </Navbar>
