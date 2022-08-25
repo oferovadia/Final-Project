@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Form, Popover, OverlayTrigger } from 'react-bootstrap';
+import { Form, Popover, OverlayTrigger, Button } from 'react-bootstrap';
 import whiteLogo from './whiteLogo.png'; // with import
 import { BsFillPersonFill, BsCart2, BsFillSuitHeartFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
@@ -34,22 +34,20 @@ function NavbarComp() {
                         </Nav>
                     </Navbar.Collapse>
                     <div className='profileCartDiv'>
+                        <Dropdown>
+                            <Dropdown.Toggle className='userDropdown'>
+                                <BsFillPersonFill className='profileIconAndCart' />
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <NavDropdown.Item className='dropDownNavOption' as={Link} to='/login'>Login</NavDropdown.Item>
+                                <NavDropdown.Item className='dropDownNavOption' as={Link} to='/signUp'>Sign Up</NavDropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                         <Nav.Link as={Link} to='/myCart'>
                             <BsCart2 className='profileIconAndCart' />
                         </Nav.Link>
                         <Nav.Link as={Link} to='/likedProducts'>
-                            <FaHeart className='profileIconAndCart' />
-                        </Nav.Link>
-                        <Nav.Link>
-                            <Dropdown>
-                                <Dropdown.Toggle className='userDropdown'>
-                                    <BsFillPersonFill className='profileIconAndCart' />
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    <NavDropdown.Item className='dropDownNavOption' as={Link} to='/login'>Login</NavDropdown.Item>
-                                    <NavDropdown.Item className='dropDownNavOption' as={Link} to='/signUp'>Sign Up</NavDropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
+                            <FaHeart className='profileIconAndCart' id='heartIcon' />
                         </Nav.Link>
                     </div>
                 </Container>
