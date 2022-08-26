@@ -1,5 +1,4 @@
 import React from 'react'
-import Carousel from 'react-bootstrap/Carousel';
 import { Card, Button, ButtonGroup } from 'react-bootstrap';
 import "./css.css";
 import { BiHeartCircle } from "react-icons/bi";
