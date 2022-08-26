@@ -22,9 +22,9 @@ function AllProducts() {
 
   return (
 
-    <div className='mainProcutsContainer'>
+    <div className='mainProductsContainer'>
       <Row className='mainProcutsRow'>
-        <Col lg={2} md={2} sm={8} xs={8}>
+        <Col categoriesDiv lg={2} md={2} sm={12} xs={12}>
           <Accordion className='categoriesDiv'>
             <Accordion.Item eventKey="0">
               <Accordion.Header>Clothes</Accordion.Header>
