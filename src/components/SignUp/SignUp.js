@@ -1,15 +1,15 @@
 import { Form, FloatingLabel } from 'react-bootstrap';
-import loginInputText from '../../DAL/loginInputText';
+import signUpInputText from '../../DAL/signUpInputText';
 import { validate } from '../../common/validations';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import formInputData from '../../DAL/formInputData';
 import { useState } from 'react'
-import "./Login.css";
+import "./SignUp.css";
 import { Link } from 'react-router-dom';
 
-function Login() {
+function SignUp() {
 
-    const validationsToCheck = ["email", "password"]
+    const validationsToCheck = ["email", "firstName", "lastName", "password"]
     const [loginForm, setLoginForm] = useState(formInputData)
 
     function validateInput({ target: { name, value, placeholder } }) {
@@ -19,28 +19,24 @@ function Login() {
         setLoginForm({ ...loginForm })
     }
 
-
-
     function submitValidations(e) {
-        ////fix this function!!!!
-        e.preventDefault() 
+        e.preventDefault()
         for (const input in formInputData) {
             if (validationsToCheck.includes(input)) {
-                validateInput({ target: { name: input, value: formInputData[input].value, placeholder: formInputData[input].placeholder } })
+                validateInput({ target: { name: input, value: formInputData[input].value } })
                 //sending a new object with the right parameters (validate input gets an object)
             }
         }
     }
 
     return (
-
-        <div className='mainLoginDiv'>
-            <div className="loginHeader">
-                <h2 className='loginH'>Login</h2>
+        <div className='mainSignUpDiv'>
+            <div className="signUpHeader">
+                <h2 className='signUpH'>Sign Up</h2>
             </div>
-            <div className='loginForm'>
+            <div className='signUpForm'>
                 {
-                    loginInputText.map(({ name, label, className, type, placeholder, something }, index) =>
+                    signUpInputText.map(({ name, label, className, type, placeholder }, index) =>
                         <FloatingLabel
                             key={index}
                             controlId={"floatingInput"}
@@ -56,14 +52,13 @@ function Login() {
                         </FloatingLabel>
                     )
                 }
-                <a className="forgotPassword" href="d">Forgot Your Password?</a>
-                <footer className="loginFooter">
-                    <button className="loginBtn" onClick={submitValidations}>LOGIN</button>
-                    <Link className="signUpLink" to="/signUp">Don't Have An Account? Sign Up!</Link>
+                <footer className="signUpFooter">
+                    <button className="signUpBtn" onClick={submitValidations}>SIGN UP</button>
+                    <Link className="loginLink" to="/login">Already Have An Account? Login!</Link>
                 </footer>
             </div>
         </div>
     )
 }
 
-export default Login
+export default SignUp
