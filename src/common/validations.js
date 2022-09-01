@@ -1,8 +1,8 @@
-export const validate = (name, value, validations) => {
+export const validate = (nameForError, value, validations) => {
     const errors = []
     if (validations.required) {
         if (!value) {
-            errors.push(`${name} is required`)
+            errors.push(`${nameForError} is required`)
             return errors
         }
     }
@@ -14,7 +14,7 @@ export const validate = (name, value, validations) => {
     }
     if (validations.pattern) {
         if(!validations.pattern.test(value)){
-            errors.push(`invalid ${name}`)
+            errors.push(`invalid ${nameForError}`)
         }
     }
     

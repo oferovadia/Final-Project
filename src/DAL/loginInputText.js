@@ -1,21 +1,17 @@
 const loginInputText = [
     {   
         name: "email",
-        controlId: "floatingInput",
         label: "Email address",
         className: "mb-3",
-        inputClassName: "floatingText",
         type: "email",
-        placeholder: "email",
+        placeholder: "Email",
     },
     {
         name: "password",
-        controlId: "floatingInput",
         label: "Password",
         className: "",
-        inputClassName: "floatingText",
         type: "password",
-        placeholder: "password"
+        placeholder: "Password",
     }
 ]
 

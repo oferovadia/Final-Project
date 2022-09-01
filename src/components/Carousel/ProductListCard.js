@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Button, ButtonGroup } from 'react-bootstrap';
 import "./css.css";
 import { BiHeartCircle } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 
 function ProductListCard(props) {

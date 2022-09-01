@@ -1,5 +1,13 @@
 const formInputData = {
-    username: {
+    firstName: {
+        value: '',
+        validations: {
+            required: true,
+            minLength: 2
+        },
+        errors: []
+    },
+    lastName: {
         value: '',
         validations: {
             required: true,
@@ -31,13 +39,6 @@ const formInputData = {
         },
         errors: []
     }
-    // gender: {
-    //     value: '',
-    //     validations: {
-    //         required: true,
-    //     },
-    //     errors: []
-    // }
 }
 
 export default formInputData
