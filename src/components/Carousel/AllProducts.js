@@ -55,8 +55,8 @@ function AllProducts() {
         <Col>
           <Row className='productsListRows'>
             {
-              products.map(({ product_name, photo_source }, index) =>
-                <ProductListCard key={index} name={product_name} image={photo_source}></ProductListCard>)
+              products.map(({ product_name, photo_source, unit_price }, index) =>
+                <ProductListCard key={index} name={product_name} image={photo_source} price={unit_price}></ProductListCard>)
             }
           </Row>
         </Col>

@@ -7,7 +7,7 @@ function ProductPage() {
     return (
         <Container className='productDiv'>
             <Row className='mainRow'>
-                <Col xs={10} lg={5}>
+                <Col xs={10} lg={12}>
                     <Carousel className='productCarousel'>
                         <Carousel.Item>
                             <img
