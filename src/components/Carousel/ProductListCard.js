@@ -11,7 +11,7 @@ function ProductListCard(props) {
       <Card className='h-100'>
         <Card.Img className='cardProductImage' variant="top" src={props.image} />
         <Card.Body className='productCardFooter'>
-        <Card.Title className='cartListPrice'>15$</Card.Title>
+        <Card.Title className='cartListPrice'>{props.price}$</Card.Title>
           <Card.Title className='cardListTitle'>{props.name}</Card.Title>
           <ButtonGroup className='productButtons' aria-label="Basic example">
             <Button className='cardButtons' variant="secondary">Add To Cart</Button>

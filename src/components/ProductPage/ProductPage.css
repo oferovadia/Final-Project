@@ -1,11 +1,16 @@
 .productDiv {
-    margin: 30px 15px;
+    /* margin: 30px 15px; */
+    margin-top: 50px;
+    display: flex;
 }
 
 .productCarousel {
     border: 2px solid black;
 }
 
+/* .mainRow{
+    display: flex;
+} */
 
 .carousel-control-prev-icon {
     background-color: black;
@@ -29,4 +34,7 @@
 }
 .quantityAndAddDiv span{
     font-size: 50px;
+}
+.itemDescription{
+    font-size: 100%;
 }
