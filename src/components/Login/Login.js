@@ -5,35 +5,34 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import formInputData from '../../DAL/formInputData';
 import { useState } from 'react'
 import "./Login.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { postLoginRequest } from '../../DAL/serverFunctions';
 
 function Login() {
 
+    const navigate = useNavigate()
     const validationsToCheck = ["email", "password"]
     const [loginForm, setLoginForm] = useState(formInputData)
+    const [userInputs, setUserInputs] = useState({})
+    const [wrongDetails, setWrongDetails] = useState()
 
-    function validateInput({ target: { name, value, placeholder } }) {
-        const targetKey = formInputData[name]
-        targetKey.errors = validate(placeholder, value, formInputData[name].validations)
-        targetKey.value = value
-        setLoginForm({ ...loginForm })
+    function updateInput(e) {
+        const inputName = e.target.name
+        userInputs[inputName] = e.target.value
+        setUserInputs({ ...userInputs })
     }
 
-
-
-    function submitValidations(e) {
-        ////fix this function!!!!
+    async function submitValidations(e) {
         e.preventDefault() 
-        for (const input in formInputData) {
-            if (validationsToCheck.includes(input)) {
-                validateInput({ target: { name: input, value: formInputData[input].value, placeholder: formInputData[input].placeholder } })
-                //sending a new object with the right parameters (validate input gets an object)
-            }
+        const userLogged = await postLoginRequest(userInputs)
+        if(userLogged){
+            navigate('/')
+        } else {
+            setWrongDetails('Email or Password is incorrect!')
         }
     }
 
     return (
-
         <div className='mainLoginDiv'>
             <div className="loginHeader">
                 <h2 className='loginH'>Login</h2>
@@ -50,12 +49,12 @@ function Login() {
                                 className={"floatingText"}
                                 type={type}
                                 placeholder={placeholder}
-                                onBlur={validateInput}
-                                name={name} />
-                            <ErrorMessage errors={formInputData[name].errors}></ErrorMessage>
+                                onBlur={updateInput}
+                                />
                         </FloatingLabel>
-                    )
-                }
+                        )
+                    }
+                    <p id='wrongDetails'>{wrongDetails}</p>
                 <a className="forgotPassword" href="d">Forgot Your Password?</a>
                 <footer className="loginFooter">
                     <button className="loginBtn" onClick={submitValidations}>LOGIN</button>
