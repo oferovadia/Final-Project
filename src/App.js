@@ -4,7 +4,7 @@ import Login from './components/Login/Login';
 import About from './components/About/About';
 import NavbarComp from './components/Navbar/Navbar';
 import ProductPage from './components/ProductPage/ProductPage';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import SignUp from './components/SignUp/SignUp';
 import Customers from './components/testing/component';
 
