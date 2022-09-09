@@ -1,8 +1,5 @@
 import { Form, FloatingLabel } from 'react-bootstrap';
 import loginInputText from '../../DAL/loginInputText';
-import { validate } from '../../common/validations';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import formInputData from '../../DAL/formInputData';
 import { useState } from 'react'
 import "./Login.css";
 import { Link, useNavigate } from 'react-router-dom';
@@ -11,8 +8,6 @@ import { postLoginRequest } from '../../DAL/serverFunctions';
 function Login() {
 
     const navigate = useNavigate()
-    const validationsToCheck = ["email", "password"]
-    const [loginForm, setLoginForm] = useState(formInputData)
     const [userInputs, setUserInputs] = useState({})
     const [wrongDetails, setWrongDetails] = useState()
 
@@ -25,8 +20,9 @@ function Login() {
     async function submitValidations(e) {
         e.preventDefault() 
         const userLogged = await postLoginRequest(userInputs)
+        console.log(userLogged);
         if(userLogged){
-            navigate('/')
+            navigate('/about')
         } else {
             setWrongDetails('Email or Password is incorrect!')
         }
@@ -50,7 +46,7 @@ function Login() {
                                 type={type}
                                 placeholder={placeholder}
                                 onBlur={updateInput}
-                                />
+                                name={name}/>
                         </FloatingLabel>
                         )
                     }

@@ -9,10 +9,21 @@ import { FaHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
+import { useEffect, useState } from "react";
 import "./Navbar.css";
+import { getCookie } from '../../DAL/serverFunctions';
 
 function NavbarComp() {
+
+    const [userLogged, setUserLogged] = useState(false)
+
+    useEffect(() => {
+        async function checkCookie() {
+            setUserLogged(await getCookie())
+        }
+        checkCookie()
+    }, [])
+
     return (
         <div>
             <Navbar className='navbar1' collapseOnSelect expand="md" variant="dark">
@@ -39,8 +50,11 @@ function NavbarComp() {
                                 <BsFillPersonFill className='profileIconAndCart' />
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <NavDropdown.Item className='dropDownNavOption' as={Link} to='/login'>Login</NavDropdown.Item>
-                                <NavDropdown.Item className='dropDownNavOption' as={Link} to='/signUp'>Sign Up</NavDropdown.Item>
+                                {userLogged ? <NavDropdown.Item className='dropDownNavOption' as={Link} to='/signUp'>Log Out</NavDropdown.Item>
+                                    : <div>
+                                        <NavDropdown.Item className='dropDownNavOption' as={Link} to='/login'>Login</NavDropdown.Item>
+                                        <NavDropdown.Item className='dropDownNavOption' as={Link} to='/signUp'>Sign Up</NavDropdown.Item>
+                                    </div>}
                             </Dropdown.Menu>
                         </Dropdown>
                         <Nav.Link as={Link} to='/myCart'>

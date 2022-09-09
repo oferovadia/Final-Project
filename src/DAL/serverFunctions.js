@@ -32,3 +32,9 @@ export async function postLoginRequest(data) {
     }
     return false;
 }
+
+export function getCookie() {
+    return fetch("http://localhost:3000/api", { credentials: "include" })
+        .then(response => response.json())
+        .then(cookie => (cookie))
+}
