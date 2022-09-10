@@ -33,6 +33,23 @@ export async function postLoginRequest(data) {
     return false;
 }
 
+export async function postSignUpRequest(data) {
+    console.log(JSON.stringify(data));
+    const result = await fetch("http://localhost:3000/api/customer/register", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+    console.log(JSON.stringify(data));
+    if (result.status === 201) {
+        return true;
+    }
+    return false;
+}
+
 export function getCookie() {
     return fetch("http://localhost:3000/api", { credentials: "include" })
         .then(response => response.json())

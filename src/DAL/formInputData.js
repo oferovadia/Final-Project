@@ -1,19 +1,21 @@
 const formInputData = {
-    firstName: {
+    first_name: {
         value: '',
         validations: {
             required: true,
             minLength: 2
         },
-        errors: []
+        errors: [],
+        name_error: "First Name"
     },
-    lastName: {
+    last_name: {
         value: '',
         validations: {
             required: true,
             minLength: 2
         },
-        errors: []
+        errors: [],
+        name_error: "Last Name"
     },
     email: {
         value: '',
@@ -21,7 +23,8 @@ const formInputData = {
             required: true,
             pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
         },
-        errors: []
+        errors: [],
+        name_error: "Email"
     },
     address: {
         value: '',
@@ -29,7 +32,8 @@ const formInputData = {
             required: true,
             minLength: 10
         },
-        errors: []
+        errors: [],
+        name_error: "Address"
     },
     password: {
         value: '',
@@ -37,7 +41,8 @@ const formInputData = {
             required: true,
             minLength: 8
         },
-        errors: []
+        errors: [],
+        name_error: "Password"
     }
 }
 

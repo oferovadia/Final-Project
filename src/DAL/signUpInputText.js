@@ -7,17 +7,17 @@ const signUpInputText = [
         placeholder: "Email",
     },
     {
-        name: "firstName",
+        name: "first_name",
         label: "First Name",
         className: "",
-        type: "password",
+        type: "text",
         placeholder: "First Name"
     },
     {
-        name: "lastName",
+        name: "last_name",
         label: "Last Name",
         className: "",
-        type: "password",
+        type: "text",
         placeholder: "Last Name"
     },
     {
