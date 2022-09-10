@@ -20,7 +20,6 @@ function Login() {
     async function submitValidations(e) {
         e.preventDefault() 
         const userLogged = await postLoginRequest(userInputs)
-        console.log(userLogged);
         if(userLogged){
             navigate('/about')
         } else {
