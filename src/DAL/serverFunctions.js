@@ -18,7 +18,6 @@ export function getCustomerByID() {
 }
 
 export async function postLoginRequest(data) {
-    console.log(JSON.stringify(data));
     const result = await fetch("http://localhost:3000/api/customer/login", {
         method: "POST",
         credentials: "include",
@@ -34,7 +33,6 @@ export async function postLoginRequest(data) {
 }
 
 export async function postSignUpRequest(data) {
-    console.log(JSON.stringify(data));
     const result = await fetch("http://localhost:3000/api/customer/register", {
         method: "POST",
         credentials: "include",
@@ -61,3 +59,10 @@ export function getAllProducts() {
         .then(response => response.json())
         .then(products => (products))
 }
+
+export function getCart() {
+    return fetch("http://localhost:3000/api/cart/user/4", { credentials: "include" })
+        .then(response => response.json())
+        .then(products => (products))
+}
+
