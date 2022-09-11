@@ -3,7 +3,7 @@ import ProductListCard from './ProductListCard'
 import "./css.css";
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/esm/Row';
-import { getProducts, getProductByName } from '../../DAL/serverFunctions';
+import { getAllProducts } from '../../DAL/serverFunctions';
 import { useState, useEffect } from 'react';
 import { Col, Accordion } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ function AllProducts() {
 
   useEffect(() => {
     async function getData() {
-      setProducts(await getProducts())
+      setProducts(await getAllProducts())
     }
     getData()
   }, [])
@@ -24,7 +24,7 @@ function AllProducts() {
 
     <div className='mainProductsContainer'>
       <Row className='mainProcutsRow'>
-        <Col categoriesDiv lg={2} md={2} sm={12} xs={12}>
+        <Col lg={2} md={2} sm={12} xs={12}>
           <Accordion className='categoriesDiv'>
             <Accordion.Item eventKey="0">
               <Accordion.Header>Clothes</Accordion.Header>
@@ -55,8 +55,12 @@ function AllProducts() {
         <Col>
           <Row className='productsListRows'>
             {
-              products.map(({ product_name, photo_source, unit_price }, index) =>
-                <ProductListCard key={index} name={product_name} image={photo_source} price={unit_price}></ProductListCard>)
+              products.map(({ productDetails, photos, product_name }, index) =>
+                <ProductListCard key={index}
+                  name={product_name}
+                  price={productDetails[0]["unit_price"]}
+                  image={photos[0]["photo_source"]}>
+                </ProductListCard>)
             }
           </Row>
         </Col>
