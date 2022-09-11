@@ -34,7 +34,7 @@ function Login() {
             </div>
             <div className='loginForm'>
                 {
-                    loginInputText.map(({ name, label, className, type, placeholder, something }, index) =>
+                    loginInputText.map(({ name, label, className, type, placeholder }, index) =>
                         <FloatingLabel
                             key={index}
                             controlId={"floatingInput"}

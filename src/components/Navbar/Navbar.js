@@ -12,6 +12,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useEffect, useState } from "react";
 import "./Navbar.css";
 import { getCookie } from '../../DAL/serverFunctions';
+import Cart from '../Cart/Cart';
 
 function NavbarComp() {
 
@@ -57,8 +58,9 @@ function NavbarComp() {
                                     </div>}
                             </Dropdown.Menu>
                         </Dropdown>
-                        <Nav.Link as={Link} to='/myCart'>
-                            <BsCart2 className='profileIconAndCart' />
+                        <Nav.Link>
+                            {/*<BsCart2 className='profileIconAndCart' />*/}
+                            <Cart></Cart>
                         </Nav.Link>
                         <Nav.Link as={Link} to='/likedProducts'>
                             <FaHeart className='profileIconAndCart' id='heartIcon' />
