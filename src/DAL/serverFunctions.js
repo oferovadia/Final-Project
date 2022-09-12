@@ -63,6 +63,17 @@ export function getAllProducts() {
 export function getCart() {
     return fetch("http://localhost:3000/api/cart/user/4", { credentials: "include" })
         .then(response => response.json())
-        .then(products => (products))
+        .then(cart => (cart))
 }
 
+export function getOrders() {
+    return fetch("http://localhost:3000/api/orders/user/6", { credentials: "include" })
+        .then(response => response.json())
+        .then(orders => (orders))
+}
+
+export function getByCategory(name) {
+    return fetch(`http://localhost:3000/api/categories/${name}`, { credentials: "include" })
+        .then(response => response.json())
+        .then(products => (products))
+}

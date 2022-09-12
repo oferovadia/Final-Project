@@ -52,6 +52,7 @@ function SignUp() {
             const registered = await postSignUpRequest(userInputs)
             if(registered){
                 navigate('/about')
+                window.location.reload();
             } else {
                 setEmailTaken('Email is taken!')
             }

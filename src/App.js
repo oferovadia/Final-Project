@@ -9,6 +9,7 @@ import SignUp from './components/SignUp/SignUp';
 import Customers from './components/testing/component';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Cart/Checkout';
+import MyOrders from './components/Orders/Orders';
 
 function App() {
   return (
@@ -19,10 +20,13 @@ function App() {
         <Route path='/login' element={<Login></Login>} />
         <Route path='/signUp' element={<SignUp></SignUp>} />
         <Route path='/product' element={<ProductPage></ProductPage>} />
-        <Route path='/products' element={<AllProducts></AllProducts>} />
+        <Route path='/products' element={<AllProducts></AllProducts>}>
+          <Route path=':categoryName' element={<AllProducts></AllProducts>} />
+        </Route>
         <Route path='/about' element={<About></About>} />
         <Route path='/cart' element={<Cart></Cart>} />
         <Route path='/checkout' element={<Checkout></Checkout>} />
+        <Route path='/orders' element={<MyOrders></MyOrders>} />
       </Routes>
     </div>
   );
