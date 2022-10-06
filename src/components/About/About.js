@@ -9,7 +9,7 @@ function About() {
         <div>
             <p className="aboutTitle">About Us</p>
             <Container className="aboutUsContainer">
-                <Row>
+                <Row className="aboutRow">
                     <Col lg={6} md={6} sm={6} xs={12} className="aboutUsDescription">
                         <p>SuperStore was made in 2022.</p>
                         <p>We love comic book characters, especially Marvel (if you can’t tell by our products).</p>

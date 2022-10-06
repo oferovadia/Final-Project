@@ -29,7 +29,7 @@ function NavbarComp() {
         <div>
             <Navbar className='navbar1' collapseOnSelect expand="md" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#Home"><img className='siteLogo' src={whiteLogo} alt='hero'></img></Navbar.Brand>
+                    <Navbar.Brand as={Link} to='/products'><img className='siteLogo' src={whiteLogo} alt='hero'></img></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
