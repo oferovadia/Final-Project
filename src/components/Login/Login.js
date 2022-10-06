@@ -21,7 +21,7 @@ function Login() {
         e.preventDefault() 
         const userLogged = await postLoginRequest(userInputs)
         if(userLogged){
-            navigate('/about')
+            navigate('/products')
             window.location.reload();
         } else {
             setWrongDetails('Email or Password is incorrect!')

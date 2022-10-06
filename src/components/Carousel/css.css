@@ -161,8 +161,10 @@ body {
 }
 
 .categoriesDiv {
-  border: 2px solid black;
-  margin-left: 10%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0px 10px;
+  margin-bottom: 20px;
 
 }
 
