@@ -42,7 +42,7 @@ function NavbarComp() {
                                 <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products'>All Proudcts</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link className='navBarOption' as={Link} to='/orders'>My Profile</Nav.Link>
-                            <Nav.Link className='navBarOption' as={Link} to='/likedProducts'>Contact Us</Nav.Link>
+                            <Nav.Link className='navBarOption' as={Link} to='/product'>Contact Us</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                     <div className='profileCartDiv'>
@@ -62,7 +62,7 @@ function NavbarComp() {
                             {/*<BsCart2 className='profileIconAndCart' />*/}
                             <Cart></Cart>
                         </Nav.Link>
-                        <Nav.Link as={Link} to='/likedProducts'>
+                        <Nav.Link as={Link} to='/product2'>
                             <FaHeart className='profileIconAndCart' id='heartIcon' />
                         </Nav.Link>
                     </div>
