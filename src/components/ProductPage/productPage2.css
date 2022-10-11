@@ -1,0 +1,90 @@
+.mainContainer{
+    margin-bottom: 50px;
+    padding: 0px 30px;
+}
+
+.carouselDiv{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.addToCartBtn{
+    border-radius: 3px;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+
+.quantityBtn{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantityBtn button{
+    color: white;
+    width: 100%;
+    text-align: center;
+    background: rgb(36, 36, 36);
+}
+
+.quantityBtn button.quantityNum{
+    border-right: 2px solid rgb(162, 162, 162);
+    border-left: 2px solid rgb(162, 162, 162);
+    pointer-events: none;
+}
+
+.sizeAndQuantity{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+
+.wishListDiv{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    letter-spacing: 5px;
+    user-select: none; /*disable text selection*/
+}
+
+.heartIconProduct{
+    vertical-align: -0.125em;
+    margin-right: 10px;
+    /* makes the heart icon align with the text */
+}
+
+.wishListDiv:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.rightSide{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    row-gap: 10px;
+}
+
+.leftSide{
+    margin-top: 50px;
+}
+
+.mainRow{
+    justify-content: center;
+}
+
+
+
+
+@media (max-width: 380px) {
+    .wishListDiv{
+        font-size: 17px;
+    }
+  }
