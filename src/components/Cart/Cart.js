@@ -49,7 +49,8 @@ function Cart(props) {
         return sum + (currentObj.total_products_price)
     }, 0)
 
-    function test(){
+    function test() {
+        handleClose()
         navigate('/checkout')
     }
 

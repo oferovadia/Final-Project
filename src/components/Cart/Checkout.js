@@ -137,6 +137,11 @@ const tablee = [
     }
 ]
 function Checkout() {
+
+    const totalCartPrice = tablee.reduce(function (sum, currentObj) {
+        return sum + (currentObj.total_products_price)
+    }, 0)
+
     return (
         <div>
             <h2>Order Date: 19/05/2022</h2>
@@ -152,13 +157,15 @@ function Checkout() {
                 </thead>
                 <tbody>
                     {
-                        tablee.map(({size, quantity, product, total_products_price, photo=product['photos'][0]['photo_source']}, index) => <Order key={index} size={size}
-                        quantity={quantity} price={total_products_price}
-                        name={product['product_name']} image={photo}></Order>)
+                        tablee.map(({ size, quantity, product, total_products_price,
+                            photo = product['photos'][0]['photo_source'] }, index) =>
+                            <Order key={index} size={size} quantity={quantity}
+                                price={total_products_price} name={product['product_name']}
+                                image={photo}></Order>)
                     }
                 </tbody>
             </Table>
-            <h2>Total: 59$</h2>
+            <h2>Total: {totalCartPrice}$</h2>
 
         </div>
     )

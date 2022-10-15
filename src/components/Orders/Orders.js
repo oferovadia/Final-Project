@@ -16,15 +16,14 @@ function Order(props) {
     }, [])
 
     return (
-        <div>
-            {/*<tr>
-                <td><img className="orderImage" src={props.image} alt={props.name}></img></td>
-                <td>{props.name}</td>
-                <td>{props.size}</td>
-                <td>{props.quantity}</td>
-                <td>{props.price}</td>
-    </tr>*/}
-        </div>
+        <tr>
+            <td><img className="orderImage" src={props.image} alt={props.name}></img></td>
+            <td>{props.name}</td>
+            <td>{props.size}</td>
+            <td>{props.quantity}</td>
+            <td>{props.price}$</td>
+        </tr>
+
     )
 }
 
