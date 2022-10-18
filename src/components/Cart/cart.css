@@ -3,7 +3,6 @@
     width: 60px;
     height: 60px;
     color: white;
-
 }
 
 .cartOffcanvas {
@@ -15,36 +14,54 @@
     background-color: transparent;
 }
 
-.singleProduct{
+.singleProduct {
     border: 1px solid black;
     display: flex;
 }
 
-.productPhoto{
+.productPhoto {
     width: 170px;
     height: 170px;
 }
 
-.productDesc{
+.productDesc {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.myCartTitle{
+
+.myCartTitle {
     font-size: 30px;
 }
-.cartFooter{
+
+.cartFooter {
     display: flex;
     flex-direction: column;
     /* align-items: center; */
 }
-.toalPrice{
+
+.toalPrice {
     text-align: center;
     margin: 15px 0px;
 }
-.checkoutBtn{
+
+.checkoutBtn {
     border-radius: 5px;
     background-color: rgb(36, 36, 36);
     color: white;
     font-size: 25px;
+}
+
+@media (max-width: 1400px) {
+    .cartIcon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 993px) {
+    .cartIcon {
+        width: 35px;
+        height: 35px;
+    }
 }
