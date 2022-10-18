@@ -11,6 +11,7 @@ import Customers from './components/testing/component';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Cart/Checkout';
 import MyOrders from './components/Orders/Orders';
+import ContactUs from './components/ContactUs/ContactUs';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path='/cart' element={<Cart></Cart>} />
         <Route path='/checkout' element={<Checkout></Checkout>} />
         <Route path='/orders' element={<MyOrders></MyOrders>} />
+        <Route path='/contactUs' element={<ContactUs></ContactUs>} />
       </Routes>
     </div>
   );

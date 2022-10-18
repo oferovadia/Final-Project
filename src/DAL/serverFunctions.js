@@ -12,13 +12,13 @@
 
 
 export function getCustomerByID() {
-    return fetch("http://localhost:3000/api/customer/:id", { credentials: "include" })
+    return fetch("http://localhost:3100/api/customer/:id", { credentials: "include" })
         .then(response => response.json())
         .then(customers => (customers))
 }
 
 export async function postLoginRequest(data) {
-    const result = await fetch("http://localhost:3000/api/customer/login", {
+    const result = await fetch("http://localhost:3100/api/customer/login", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -33,7 +33,7 @@ export async function postLoginRequest(data) {
 }
 
 export async function postSignUpRequest(data) {
-    const result = await fetch("http://localhost:3000/api/customer/register", {
+    const result = await fetch("http://localhost:3100/api/customer/register", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -49,31 +49,31 @@ export async function postSignUpRequest(data) {
 }
 
 export function getCookie() {
-    return fetch("http://localhost:3000/api", { credentials: "include" })
+    return fetch("http://localhost:3100/api", { credentials: "include" })
         .then(response => response.json())
         .then(cookie => (cookie))
 }
 
 export function getAllProducts() {
-    return fetch("http://localhost:3000/api/products", { credentials: "include" })
+    return fetch("http://localhost:3100/api/products", { credentials: "include" })
         .then(response => response.json())
         .then(products => (products))
 }
 
 export function getCart() {
-    return fetch("http://localhost:3000/api/cart/user/4", { credentials: "include" })
+    return fetch("http://localhost:3100/api/cart/user/4", { credentials: "include" })
         .then(response => response.json())
         .then(cart => (cart))
 }
 
 export function getOrders() {
-    return fetch("http://localhost:3000/api/orders/user/6", { credentials: "include" })
+    return fetch("http://localhost:3100/api/orders/user/6", { credentials: "include" })
         .then(response => response.json())
         .then(orders => (orders))
 }
 
 export function getByCategory(name) {
-    return fetch(`http://localhost:3000/api/categories/${name}`, { credentials: "include" })
+    return fetch(`http://localhost:3100/api/categories/${name}`, { credentials: "include" })
         .then(response => response.json())
         .then(products => (products))
 }

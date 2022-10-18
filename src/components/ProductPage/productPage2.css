@@ -1,14 +1,14 @@
-.mainContainer{
+.mainContainer {
     margin-bottom: 50px;
     padding: 0px 30px;
 }
 
-.carouselDiv{
+.carouselDiv {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.addToCartBtn{
+.addToCartBtn {
     border-radius: 3px;
     background-color: rgb(36, 36, 36);
     color: white;
@@ -19,14 +19,14 @@
 }
 
 
-.quantityBtn{
+.quantityBtn {
     width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.quantityBtn button{
+.quantityBtn button {
     color: white;
     width: 100%;
     text-align: center;
@@ -34,42 +34,43 @@
     font-size: 20px;
 }
 
-.quantityBtn button.quantityNum{
+.quantityBtn button.quantityNum {
     border-right: 2px solid rgb(162, 162, 162);
     border-left: 2px solid rgb(162, 162, 162);
     pointer-events: none;
 }
 
-.sizeAndQuantity{
+.sizeAndQuantity {
     display: flex;
     gap: 30px;
     justify-content: center;
 }
 
-.selectSize{
+.selectSize {
     font-size: 20px;
 }
 
-.wishListDiv{
+.wishListDiv {
     display: flex;
     justify-content: center;
     font-size: 20px;
     letter-spacing: 5px;
-    user-select: none; /*disable text selection*/
+    user-select: none;
+    /*disable text selection*/
 }
 
-.heartIconProduct{
+.heartIconProduct {
     vertical-align: -0.125em;
     /* makes the heart icon align with the text */
     margin-right: 10px;
 }
 
-.wishListDiv:hover{
+.wishListDiv:hover {
     color: red;
     cursor: pointer;
 }
 
-.rightSide{
+.rightSide {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -77,34 +78,34 @@
     row-gap: 10px;
 }
 
-.leftSide{
+.leftSide {
     margin-top: 50px;
 }
 
-.mainRow{
+.mainRow {
     justify-content: center;
 }
 
-.breakLine{
+.breakLine {
     margin: 0px;
 }
 
-.modalBody{
+.modalBody {
     display: flex;
     justify-content: space-around;
 }
 
-.modalImage{
+.modalImage {
     width: 30%;
 }
 
-.modalBodyDesc{
+.modalBodyDesc {
     text-align: center;
     font-size: 20px;
 }
 
 @media (max-width: 380px) {
-    .wishListDiv{
+    .wishListDiv {
         font-size: 15px;
     }
-  }
+}
