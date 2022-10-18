@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'Comic';
+    src: URL('comickes.regular.ttf') format('truetype');
+}
+
+.mainContactRow{
+    margin: 20px 0px;
+}
+
+.formCol {
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+    border: 5px solid white;
+}
+
+.submitBtnContact {
+    border-radius: 3px;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    font-size: 25px;
+    width: 90%;
+    margin: 10px 0px;
+}
+
+
+.contactInfoCol {
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Comic;
+    text-align: center;
+    border: 5px solid white;
+}
+
+.info {
+    font-size: 25px;
+}
+
+.contactIcons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contactIcons a {
+    color: black;
+}
+
+.contactIcon {
+    font-size: 40px;
+}
+
+
+.breakLine{
+    margin: 10px 0px;
+}
+
+@media (max-width: 992px) {
+    .info {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 550px) {
+    .info {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .info {
+        font-size: 17px;
+    }
+}

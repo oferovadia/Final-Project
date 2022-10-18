@@ -45,7 +45,7 @@ function Cart(props) {
         getData()
     }, [])
 
-    let priceSum = cartDetails.reduce(function (sum, currentObj) {
+    const priceSum = cartDetails.reduce(function (sum, currentObj) {
         return sum + (currentObj.total_products_price)
     }, 0)
 

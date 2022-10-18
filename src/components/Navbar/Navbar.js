@@ -42,7 +42,7 @@ function NavbarComp() {
                                 <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products'>All Proudcts</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link className='navBarOption' as={Link} to='/orders'>My Profile</Nav.Link>
-                            <Nav.Link className='navBarOption' as={Link} to='/product'>Contact Us</Nav.Link>
+                            <Nav.Link className='navBarOption' as={Link} to='/contactUs'>Contact Us</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                     <div className='profileCartDiv'>
