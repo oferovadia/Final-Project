@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 import { Form, FloatingLabel, Container, Row, Col } from 'react-bootstrap';
 import { FaFacebookSquare, FaTwitterSquare, FaLinkedin } from "react-icons/fa";
 import './ContactUs.css';
