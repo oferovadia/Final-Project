@@ -108,6 +108,7 @@ body {
 .cardProductImage {
   height: 310px;
   border-bottom: 1px solid black;
+  cursor: pointer;
 }
 
 .cardDiv {
