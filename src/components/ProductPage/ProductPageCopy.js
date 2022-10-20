@@ -4,6 +4,7 @@ import React from 'react'
 import { IoMdHeartEmpty } from "react-icons/io";
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
 function ProductPage2() {
 
@@ -11,6 +12,8 @@ function ProductPage2() {
 
     const closeModal = () => setShowModal(false);
 
+    const location = useLocation()
+    const product = location.state.from
 
     const [quantity, setQuantity] = useState(1)
     const [size, setSize] = useState('')
@@ -31,6 +34,7 @@ function ProductPage2() {
 
     function selectSize(e) {
         setSize(e.target.value)
+        console.log(product)
     }
 
     return (
@@ -41,23 +45,23 @@ function ProductPage2() {
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="https://i5.walmartimages.com/asr/265dcea9-e647-46b9-b2c2-496797a82a5a_1.7493808aeff712fffc0c01c4a56f7419.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
-                                alt="Second slide"
+                                src={product.image1}
+                                alt={product.name}
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="https://i5.walmartimages.com/asr/137c3e96-38fd-4f4a-b83c-6afc95bf44cb_1.e8cfa4bfbe55389da3f06e7dd9307856.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
-                                alt="Third slide"
+                                src={product.image2}
+                                alt={product.name}
                             />
                         </Carousel.Item>
                     </Carousel>
                 </Col>
 
                 <Col className='rightSide' lg={5} md={6} sm={12}>
-                    <h1>Deadpool Plushie</h1>
-                    <h3>15$</h3>
+                    <h1>{product.name}</h1>
+                    <h3>{product.price}$</h3>
                     <p>This product is deadpool deadpool deadpool deadpool deadpool deadpool
                         deadpool deadpool deadpool deadpool deadpool deadpool
                     </p>
@@ -85,11 +89,11 @@ function ProductPage2() {
                                 <Modal.Body className='modalBody'>
                                     <img
                                         className='modalImage'
-                                        src="https://i5.walmartimages.com/asr/265dcea9-e647-46b9-b2c2-496797a82a5a_1.7493808aeff712fffc0c01c4a56f7419.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
-                                        alt="Second slide"
+                                        src={product.image1}
+                                        alt={product.name}
                                     />
                                     <div className='modalBodyDesc'>
-                                        <h4>Deadpool Plushie</h4>
+                                        <h4>{product.name}</h4>
                                         <p>Quantity: {quantity}</p>
                                         <p>Size: {size}</p>
                                     </div>
