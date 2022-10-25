@@ -60,8 +60,14 @@ export function getAllProducts() {
         .then(products => (products))
 }
 
+export function getProductByID(id) {
+    return fetch(`http://localhost:3100/api/products/${id}`, { credentials: "include" })
+        .then(response => response.json())
+        .then(products => (products))
+}
+
 export function getCart() {
-    return fetch("http://localhost:3100/api/cart/user/4", { credentials: "include" })
+    return fetch("http://localhost:3100/api/cart", { credentials: "include" })
         .then(response => response.json())
         .then(cart => (cart))
 }

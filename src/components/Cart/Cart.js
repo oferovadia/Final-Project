@@ -38,9 +38,7 @@ function Cart(props) {
     useEffect(() => {
         async function getData() {
             const cartItems = await getCart()
-            // console.log(cartItems[1]);
             setCartDetails(cartItems[1])
-            // console.log(cartDetails);
         }
         getData()
     }, [])
