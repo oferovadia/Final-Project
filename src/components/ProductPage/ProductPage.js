@@ -1,51 +1,134 @@
 import './ProductPage.css';
-import { Carousel, Container, Row, Col } from 'react-bootstrap';
+import { Carousel, Container, Row, Col, Modal } from 'react-bootstrap';
 import React from 'react'
-import { BiHeartCircle } from "react-icons/bi";
+import { IoMdHeartEmpty } from "react-icons/io";
+import { useState, useEffect } from 'react'
+import { useLocation, useParams } from 'react-router-dom';
+import { getProductByID } from '../../DAL/serverFunctions';
 
 function ProductPage() {
+    
+    const [showModal, setShowModal] = useState(false);
+    const [product, setProduct] = useState({});
+    const [loading, setLoading] = useState(false)
+    const [quantity, setQuantity] = useState(1)
+    const [size, setSize] = useState('')
+    
+    const location = useLocation()
+    const params = useParams()
+    
+    useEffect(() => {
+        async function getProduct() {
+            if (location.state) {
+                console.log("state")
+                setProduct(location.state.from)
+            } else {
+                console.log("else")
+                setProduct(await getProductByID(params.id))
+            }
+            setLoading(true)
+        }
+        getProduct()
+    }, [])
+    
+    const closeModal = () => setShowModal(false);
+    
+    function incrementQuantity() {
+        setQuantity(quantity + 1);
+    }
+
+    function decrementQuantity() {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    }
+
+    function addToCartFunc() {
+        setShowModal(true)
+    }
+
+    function selectSize(e) {
+        setSize(e.target.value)
+    }
+
+    function setPhotos() {
+        return product.photos.map(photo => <Carousel.Item key={photo.id}>
+            <img
+                className="d-block w-100"
+                src={photo.photo_source}
+                alt={product.product_name}
+            />
+        </Carousel.Item>)
+    }
+
+    function setPage() {
+        return <Row className='mainRow'>
+            <Col className='leftSide' lg={5} md={6} sm={12}>
+                <Carousel className='carouselDiv'>
+                    {setPhotos()}
+                </Carousel>
+            </Col>
+
+            <Col className='rightSide' lg={5} md={6} sm={12}>
+                <h1>{product.product_name}</h1>
+                <h3>{product['productDetails'][0]['unit_price']}$</h3>
+                <p>This product is deadpool deadpool deadpool deadpool deadpool deadpool
+                    deadpool deadpool deadpool deadpool deadpool deadpool
+                </p>
+                <div className='sizeAndQuantity'>
+                    {product.productDetails[0].size ? <select className='selectSize'
+                        onChange={selectSize}>
+                        <option hidden>Select Size</option>
+                        {
+                            product.productDetails.map((productDetail) =>
+                                <option key={productDetail.id}>{productDetail.size}</option>)
+                        }
+                    </select> : <select className='selectSize' onChange={selectSize}>
+                        <option hidden>Select Size</option>
+                        <option>ONE SIZE</option>
+                    </select>}
+                    <div className='quantityBtn'>
+                        <button onClick={decrementQuantity} className='minus'>-</button>
+                        <button className='quantityNum'>{quantity}</button>
+                        <button onClick={incrementQuantity} className='plus'>+</button>
+                    </div>
+                </div>
+
+                <div>
+                    <button onClick={addToCartFunc} className='addToCartBtn'>ADD TO CART</button>
+                    {showModal ?
+                        <Modal show={showModal} onHide={closeModal}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Item Was Added To Cart</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body className='modalBody'>
+                                <img
+                                    className='modalImage'
+                                    src={product.photos[0].photo_source}
+                                    alt={product.product_name}
+                                />
+                                <div className='modalBodyDesc'>
+                                    <h4>{product.product_name}</h4>
+                                    <p>Quantity: {quantity}</p>
+                                    <p>Size: {size}</p>
+                                </div>
+                            </Modal.Body>
+                        </Modal> : ""}
+                </div>
+                <hr className='breakLine'></hr>
+                <div className='wishListDiv'>
+                    <span className='wishlistBtn' ><IoMdHeartEmpty className='heartIconProduct' />ADD TO WISHLIST</span>
+                </div>
+                <hr className='breakLine'></hr>
+            </Col>
+        </Row>
+    }
+
     return (
-        <Container className='productDiv'>
-            <Row className='mainRow'>
-                <Col xs={10} lg={5}>
-                    <Carousel className='productCarousel'>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src="https://i5.walmartimages.com/asr/265dcea9-e647-46b9-b2c2-496797a82a5a_1.7493808aeff712fffc0c01c4a56f7419.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
-                                alt="Second slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src="https://i5.walmartimages.com/asr/137c3e96-38fd-4f4a-b83c-6afc95bf44cb_1.e8cfa4bfbe55389da3f06e7dd9307856.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
-                                alt="Third slide"
-                            />
-                        </Carousel.Item>
-                    </Carousel>
-                </Col>
-                <Col>
-                    <Row className='itemTitle'>
-                        <h1>Deadpool Plushie</h1>
-                    </Row>
-                    <Row>
-                        <p className='itemDescription'>ITEM DESCRIPTION SFJSODFNAOSDJFNOASDJFNOJASDFOSDFONADSFOJNDSFKSJDMFSDF
-                            SDFKSJDFNSDJFNKSJDFNKJSDNFKJKODSMFMOSKDMFOKSDMFOKMDSOFKMOKSDNFKJSDNFJKSDF
-                            SDFJNSDJFNSDOFSDNFOJSDNFOJSDNFSDFSDFKMDOSF</p>
-                    </Row>
-                    <Row className='itemButtonsRow'>
-                        <button className='itemButtons'>heart</button>
-                        <div className='quantityAndAddDiv'>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                        <button className='itemButtons'>add to cart</button>
-                    </Row>
-                </Col>
-            </Row>
+        <Container className='mainContainer'>
+            {loading ? setPage() : ""}
         </Container>
+
     )
 }
 

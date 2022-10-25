@@ -4,7 +4,6 @@ import Login from './components/Login/Login';
 import About from './components/About/About';
 import NavbarComp from './components/Navbar/Navbar';
 import ProductPage from './components/ProductPage/ProductPage';
-import ProductPage2 from './components/ProductPage/ProductPageCopy';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import SignUp from './components/SignUp/SignUp';
 import Customers from './components/testing/component';
@@ -22,10 +21,11 @@ function App() {
         <Route path='/login' element={<Login></Login>} />
         <Route path='/signUp' element={<SignUp></SignUp>} />
         <Route path='/product' element={<ProductPage></ProductPage>} />
-        <Route path='/product/:id' element={<ProductPage2></ProductPage2>} />
+        <Route path='/product/:id' element={<ProductPage></ProductPage>} />
         <Route path='/products' element={<AllProducts></AllProducts>}>
           <Route path='category/:categoryName' element={<AllProducts></AllProducts>} />
         </Route>
+        <Route path='/products/:id' element={<ProductPage></ProductPage>} />
         <Route path='/about' element={<About></About>} />
         <Route path='/cart' element={<Cart></Cart>} />
         <Route path='/checkout' element={<Checkout></Checkout>} />
