@@ -5,6 +5,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom';
 import { getProductByID } from '../../DAL/serverFunctions';
+import { postAddToCart } from '../../DAL/serverFunctions';
 
 function ProductPage() {
     
@@ -20,10 +21,8 @@ function ProductPage() {
     useEffect(() => {
         async function getProduct() {
             if (location.state) {
-                console.log("state")
                 setProduct(location.state.from)
             } else {
-                console.log("else")
                 setProduct(await getProductByID(params.id))
             }
             setLoading(true)
@@ -31,7 +30,13 @@ function ProductPage() {
         getProduct()
     }, [])
     
-    const closeModal = () => setShowModal(false);
+    // const closeModal = () => setShowModal(false);
+
+    function closeModal() { 
+        window.location.reload();
+        setShowModal(false);
+
+    }
     
     function incrementQuantity() {
         setQuantity(quantity + 1);
@@ -43,8 +48,25 @@ function ProductPage() {
         }
     }
 
-    function addToCartFunc() {
+    async function addToCart() {
+        if(!size){
+            alert('Hi! Please select a size')
+            return;
+        }
+        const details = {
+            customer_id: 23,
+            product_id: product.id,
+            quantity: quantity,
+            total: product['productDetails'][0]['unit_price'] * quantity
+        }
+        if(size !== 'ONE SIZE'){
+            details.size = size;
+        } else {
+            details.size = null
+        }
+        await postAddToCart(details)
         setShowModal(true)
+
     }
 
     function selectSize(e) {
@@ -95,7 +117,7 @@ function ProductPage() {
                 </div>
 
                 <div>
-                    <button onClick={addToCartFunc} className='addToCartBtn'>ADD TO CART</button>
+                    <button onClick={addToCart} className='addToCartBtn'>ADD TO CART</button>
                     {showModal ?
                         <Modal show={showModal} onHide={closeModal}>
                             <Modal.Header closeButton>

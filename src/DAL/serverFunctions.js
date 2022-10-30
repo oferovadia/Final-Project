@@ -1,16 +1,3 @@
-// export function getProducts() {
-//     return fetch("http://localhost:3100/api/products")
-//         .then(response => response.json())
-//         .then(products => (products))
-// }
-
-// export function getProductByName(name) {
-//     return fetch(`http://localhost:3100/api/products/${name}`)
-//         .then(response => response.json())
-//         .then(products => (products))
-// }
-
-
 export function getCustomerByID() {
     return fetch("http://localhost:3100/api/customer/:id", { credentials: "include" })
         .then(response => response.json())
@@ -48,6 +35,12 @@ export async function postSignUpRequest(data) {
     return false;
 }
 
+export function logOut() {
+    return fetch('http://localhost:3100/api/customer/logout', { credentials: "include" })
+        .then(response => response.json())
+        .then(products => (products))
+}
+
 export function getCookie() {
     return fetch("http://localhost:3100/api", { credentials: "include" })
         .then(response => response.json())
@@ -83,3 +76,31 @@ export function getByCategory(name) {
         .then(response => response.json())
         .then(products => (products))
 }
+
+
+export async function postAddToCart(data) {
+    const result = await fetch("http://localhost:3100/api/products/add", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+    console.log(JSON.stringify(data), "this is data");
+    console.log("hello");
+    if (result.status === 201) {
+        return true;
+    }
+    return false;
+}
+
+export async function deleteFromCart(cartDetailsID) {
+    fetch(`http://localhost:3100/api/products/${cartDetailsID}`, {
+      method: "DELETE",
+      credentials: "include",
+    //   body: JSON.stringify(cartDetailsID),
+    });
+    console.log(cartDetailsID);
+
+  }

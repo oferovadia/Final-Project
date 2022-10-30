@@ -1,6 +1,13 @@
+import { deleteFromCart } from "../../DAL/serverFunctions";
 import "./cartItem.css";
 
 function Cartitem(props) {
+
+    function removeItemFromCart() {
+        deleteFromCart(props.id)
+        window.location.reload();
+    }
+
     return (
         <div>
             <div className="singleProduct">
@@ -9,7 +16,7 @@ function Cartitem(props) {
                     <p>Name: {props.name}</p>
                     <p>Quantity: {props.quantity}</p>
                     <p>Total Price: {props.price}$</p>
-                    {/*<button>remove</button>*/}
+                    <p className="removeBtn" onClick={removeItemFromCart}>X</p>
                 </div>
             </div>
         </div>
