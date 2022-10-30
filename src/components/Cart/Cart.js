@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { BsCart2 } from "react-icons/bs";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getCart } from '../../DAL/serverFunctions';
 import "./cart.css";
 import Cartitem from './CartItem';
 
-function Cart(props) {
+function Cart() {
 
     const navigate = useNavigate()
 
@@ -17,39 +17,33 @@ function Cart(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const items = [{
-        id: 1, name: 'Spiderman Shirt',
-        quantity: 2, price: 10,
-        photo: 'https://statics.pampling.com/imagenes/galerias/imagen_39520.jpg?1659010657'
-    },
-    {
-        id: 2, name: 'Groot Shirt',
-        quantity: 1, price: 10,
-        photo: 'https://statics.pampling.com/imagenes/galerias/imagen_38449.jpg?1659010655'
-    },
-    {
-        id: 2, name: 'Venom Shirt',
-        quantity: 2, price: 10,
-        photo: 'https://statics.pampling.com/imagenes/galerias/imagen_38991.jpg?1659010656'
-    }]
-
-
-
     useEffect(() => {
         async function getData() {
             const cartItems = await getCart()
-            setCartDetails(cartItems[1])
+            if (cartItems) {
+                setCartDetails(cartItems[1])
+            }
         }
         getData()
     }, [])
 
-    const priceSum = cartDetails.reduce(function (sum, currentObj) {
-        return sum + (currentObj.total_products_price)
-    }, 0)
+
+
+    function calcSum() {
+        if (cartDetails) {
+            const sum = cartDetails.reduce(function (sum, currentObj) {
+                return sum + (currentObj.total_products_price)
+            }, 0)
+            return <h2 className='toalPrice'>Total Price: {sum}$</h2>
+        } else {
+            return <h2 className='toalPrice'>Total Price: 0$</h2>
+        }
+    }
 
     function test() {
         handleClose()
         navigate('/checkout')
+
     }
 
     return (
@@ -62,16 +56,18 @@ function Cart(props) {
                     <Offcanvas.Title className='myCartTitle'>My Cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    {
+                    {cartDetails ?
                         cartDetails.map((cartD, index) =>
                             <Cartitem key={index}
+                                id={cartD.id}
                                 name={cartD['product']['product_name']}
                                 photo={cartD['product']['photos'][0]['photo_source']}
                                 quantity={cartD['quantity']}
-                                price={cartD['total_products_price']}></Cartitem>)
-                    }
+                                price={cartD['total_products_price']
+                                }></Cartitem>)
+                        : ""}
                     <div className='cartFooter'>
-                        <h2 className='toalPrice'>Total Price: {priceSum}$</h2>
+                        {calcSum()}
                         <button className='checkoutBtn' onClick={test}>Checkout</button>
                     </div>
                 </Offcanvas.Body>

@@ -1,22 +1,17 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Form, Popover, OverlayTrigger, Button } from 'react-bootstrap';
+import { Form, NavDropdown, Nav, Container, Navbar, Dropdown } from 'react-bootstrap';
 import whiteLogo from './whiteLogo.png'; // with import
-import { BsFillPersonFill, BsCart2, BsFillSuitHeartFill } from "react-icons/bs";
+import { BsFillPersonFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
-import { Link } from 'react-router-dom';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import "./Navbar.css";
-import { getCookie } from '../../DAL/serverFunctions';
+import { getCookie, logOut } from '../../DAL/serverFunctions';
 import Cart from '../Cart/Cart';
 
 function NavbarComp() {
 
     const [userLogged, setUserLogged] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function checkCookie() {
@@ -24,6 +19,13 @@ function NavbarComp() {
         }
         checkCookie()
     }, [])
+
+    async function logOutUser() {
+        if (await logOut()) {
+            navigate('/products')
+            window.location.reload();
+        }
+    }
 
     return (
         <div>
@@ -37,7 +39,7 @@ function NavbarComp() {
                             <Nav.Link className='navBarOption' as={Link} to='/about'>About Us</Nav.Link>
                             <NavDropdown className='navBarOption' title="Categories" id="collasible-nav-dropdown">
                                 <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products/category/AllClothes'>Clothes</NavDropdown.Item>
-                                <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products/category/allComics'>Comics</NavDropdown.Item>
+                                <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products/category/Comics'>Comics</NavDropdown.Item>
                                 <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products/category/AllFigures'>Figures</NavDropdown.Item>
                                 <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products'>All Proudcts</NavDropdown.Item>
                             </NavDropdown>
@@ -51,7 +53,7 @@ function NavbarComp() {
                                 <BsFillPersonFill className='profileIconAndCart' />
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                {userLogged ? <NavDropdown.Item className='dropDownNavOption' as={Link} to='/likedProducts'>Log Out</NavDropdown.Item>
+                                {userLogged ? <NavDropdown.Item className='dropDownNavOption' onClick={logOutUser}>Log Out</NavDropdown.Item>
                                     : <div>
                                         <NavDropdown.Item className='dropDownNavOption' as={Link} to='/login'>Login</NavDropdown.Item>
                                         <NavDropdown.Item className='dropDownNavOption' as={Link} to='/signUp'>Sign Up</NavDropdown.Item>
@@ -59,7 +61,6 @@ function NavbarComp() {
                             </Dropdown.Menu>
                         </Dropdown>
                         <Nav.Link>
-                            {/*<BsCart2 className='profileIconAndCart' />*/}
                             <Cart></Cart>
                         </Nav.Link>
                         <Nav.Link as={Link} to='/product2'>

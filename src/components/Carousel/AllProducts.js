@@ -33,7 +33,7 @@ function AllProducts() {
               <Accordion.Body>
                 <p><Link to='/products/category/AllClothes'>All Clothes</Link></p>
                 <p><Link to='/products/category/Shirts'>Shirts</Link></p>
-                <p><Link to='/products/category/Sweatshirt'>Sweatshirt</Link></p>
+                <p><Link to='/products/category/Sweatshirts'>Sweatshirts</Link></p>
                 <p><Link to='/products/category/Hats'>Hats</Link></p>
               </Accordion.Body>
             </Accordion.Item>
