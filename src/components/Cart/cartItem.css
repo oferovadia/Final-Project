@@ -1,0 +1,36 @@
+.productDesc{
+    margin-left: 15px;
+}
+
+.productDesc p{
+    margin-bottom: 0px;
+}
+
+.quantityP {
+    display: inline;
+    margin-right: 10px;
+}
+
+.changeQuantityBtn {
+    width: 20%;
+    border: 1px solid #ddd;
+}
+
+.removeBtn{
+    text-decoration: underline;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: blue;
+}
+
+.productCartName{
+    font-size: 1.1rem;
+}
+
+.cartTotalProduct{
+    margin-top: 10px;
+}
+
+.singleProduct{
+    padding: 8px 5px;
+}

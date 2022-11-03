@@ -10,7 +10,7 @@ function Order(props) {
         async function getData() {
             const data = await getOrders()
             setOrders(data[0]['orders'])
-            console.log(data[0]['orders']);
+            // console.log(data[0]['orders']);
         }
         getData()
     }, [])

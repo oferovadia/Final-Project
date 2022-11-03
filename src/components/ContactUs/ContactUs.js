@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, FloatingLabel, Container, Row, Col } from 'react-bootstrap';
-import { FaFacebookSquare, FaTwitterSquare, FaLinkedin } from "react-icons/fa";
+import { FaFacebookSquare, FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import './ContactUs.css';
 
 
@@ -62,9 +62,9 @@ export default function ContactUs() {
                                         <FaFacebookSquare className='contactIcon'
                                         />
                                     </a>
-                                    <a href='https://twitter.com/login'
+                                    <a href='https://github.com/oferovadia'
                                         target="_blank" rel="noopener noreferrer">
-                                        <FaTwitterSquare className='contactIcon'
+                                        <FaGithubSquare className='contactIcon'
                                         />
                                     </a>
                                 </div>

@@ -41,9 +41,9 @@ function Cart() {
     }
 
     function test() {
+        console.log(cartDetails);
         handleClose()
         navigate('/checkout')
-
     }
 
     return (
@@ -60,6 +60,8 @@ function Cart() {
                         cartDetails.map((cartD, index) =>
                             <Cartitem key={index}
                                 id={cartD.id}
+                                product_id={cartD.product_id}
+                                size={cartD.size}
                                 name={cartD['product']['product_name']}
                                 photo={cartD['product']['photos'][0]['photo_source']}
                                 quantity={cartD['quantity']}

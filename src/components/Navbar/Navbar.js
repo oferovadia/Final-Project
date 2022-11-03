@@ -37,7 +37,7 @@ function NavbarComp() {
                         <Nav className="me-auto">
                             <Nav.Link className='navBarOption' as={Link} to='/products'>Home</Nav.Link>
                             <Nav.Link className='navBarOption' as={Link} to='/about'>About Us</Nav.Link>
-                            <NavDropdown className='navBarOption' title="Categories" id="collasible-nav-dropdown">
+                            <NavDropdown className='navBarOption' title="Products" id="collasible-nav-dropdown">
                                 <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products/category/AllClothes'>Clothes</NavDropdown.Item>
                                 <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products/category/Comics'>Comics</NavDropdown.Item>
                                 <NavDropdown.Item className='dropDownNavOption' as={Link} to='/products/category/AllFigures'>Figures</NavDropdown.Item>
