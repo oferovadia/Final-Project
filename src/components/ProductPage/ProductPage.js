@@ -8,17 +8,18 @@ import { getProductByID } from '../../DAL/serverFunctions';
 import { postAddToCart } from '../../DAL/serverFunctions';
 
 function ProductPage() {
-    
+
     const [showModal, setShowModal] = useState(false);
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(false)
     const [quantity, setQuantity] = useState(1)
     const [size, setSize] = useState('')
-    
+
     const location = useLocation()
     const params = useParams()
-    
+
     useEffect(() => {
+
         async function getProduct() {
             if (location.state) {
                 setProduct(location.state.from)
@@ -29,15 +30,14 @@ function ProductPage() {
         }
         getProduct()
     }, [])
-    
-    // const closeModal = () => setShowModal(false);
 
-    function closeModal() { 
+
+    function closeModal() {
         window.location.reload();
         setShowModal(false);
 
     }
-    
+
     function incrementQuantity() {
         setQuantity(quantity + 1);
     }
@@ -49,7 +49,7 @@ function ProductPage() {
     }
 
     async function addToCart() {
-        if(!size){
+        if (!size) {
             alert('Hi! Please select a size')
             return;
         }
@@ -59,14 +59,16 @@ function ProductPage() {
             quantity: quantity,
             total: product['productDetails'][0]['unit_price'] * quantity
         }
-        if(size !== 'ONE SIZE'){
+        if (size !== 'ONE SIZE') {
             details.size = size;
         } else {
             details.size = null
         }
-        await postAddToCart(details)
-        setShowModal(true)
-
+        const itemWasAdded = await postAddToCart(details)
+        if(itemWasAdded){
+            console.log(itemWasAdded, 'answer');
+            setShowModal(true)
+        }
     }
 
     function selectSize(e) {

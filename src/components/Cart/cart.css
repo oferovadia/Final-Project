@@ -15,8 +15,11 @@
 }
 
 .singleProduct {
-    border: 1px solid black;
     display: flex;
+    /* border: 1px solid black; */
+    border: 1px solid rgb(193, 193, 193);
+    /* border-top: 1px solid rgb(122, 122, 122);
+    border-bottom: 1px solid rgb(122, 122, 122); */
 }
 
 .productPhoto {
@@ -51,6 +54,7 @@
     color: white;
     font-size: 25px;
 }
+
 
 @media (max-width: 1400px) {
     .cartIcon {
