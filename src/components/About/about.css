@@ -1,4 +1,4 @@
-.aboutTitle{
+/* .aboutTitle{
     text-align: center;
     font-size: 65px;
 }
@@ -14,4 +14,24 @@
 
 .aboutUsDescription{
     text-align: center;
+} */
+
+
+.firstContainer{
+    text-align: center;
+}
+.firstHomeDiv{
+    /* width: 80%; */
+    background-color: rgb(221, 237, 255);
+align-self: center;    
+}
+
+.captainSalute{
+    /* width: 40%; */
+    /* border-image-slice: 30%; */
+    width: 100px;
+  height: 100px;
+  -webkit-clip-path: polygon(0 0, 0 100px, 100px 80px, 100px 0);
+  clip-path: polygon(0 0, 0 100px, 100px 0px, 100px 0);
+
 }
