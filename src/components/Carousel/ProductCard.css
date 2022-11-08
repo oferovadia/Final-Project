@@ -71,8 +71,8 @@ body {
 }
 
 @media (min-width: 1400px) {
-  .mainProcutsContainer {
-  }
+  /* .mainProcutsContainer {
+  } */
 }
 
 @media (max-width: 1201px) {
