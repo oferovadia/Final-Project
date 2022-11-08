@@ -14,8 +14,11 @@ function Cart() {
     const [show, setShow] = useState(false);
     const [cartDetails, setCartDetails] = useState([]);
 
-    const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    function handleClose() {
+        setShow(false);
+    }
 
     useEffect(() => {
         async function getData() {
@@ -25,7 +28,7 @@ function Cart() {
             }
         }
         getData()
-    }, [])
+    }, [cartDetails])
 
 
 
@@ -65,7 +68,8 @@ function Cart() {
                                 name={cartD['product']['product_name']}
                                 photo={cartD['product']['photos'][0]['photo_source']}
                                 quantity={cartD['quantity']}
-                                price={cartD['total_products_price']
+                                price={cartD['total_products_price']}
+                                unit_price={cartD['product']['productDetails'][0]['unit_price']
                                 }></Cartitem>)
                         : ""}
                     <div className='cartFooter'>

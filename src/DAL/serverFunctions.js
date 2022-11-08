@@ -97,10 +97,23 @@ export async function postAddToCart(data) {
 
 export async function deleteFromCart(cartDetailsID) {
     fetch(`http://localhost:3100/api/products/${cartDetailsID}`, {
-      method: "DELETE",
-      credentials: "include",
-    //   body: JSON.stringify(cartDetailsID),
+        method: "DELETE",
+        credentials: "include",
+        //   body: JSON.stringify(cartDetailsID),
     });
     console.log(cartDetailsID);
 
-  }
+}
+
+export async function updateCartQuantity(cartDetailsID) {
+    fetch(`http://localhost:3100/api/products`, {
+        method: "PATCH",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cartDetailsID),
+    });
+    console.log(cartDetailsID);
+
+}

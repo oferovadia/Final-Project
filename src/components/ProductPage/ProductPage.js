@@ -65,8 +65,7 @@ function ProductPage() {
             details.size = null
         }
         const itemWasAdded = await postAddToCart(details)
-        if(itemWasAdded){
-            console.log(itemWasAdded, 'answer');
+        if (itemWasAdded) {
             setShowModal(true)
         }
     }

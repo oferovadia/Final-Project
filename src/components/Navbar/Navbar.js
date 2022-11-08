@@ -10,7 +10,7 @@ import Cart from '../Cart/Cart';
 
 function NavbarComp() {
 
-    const [userLogged, setUserLogged] = useState(false)
+    const [userLogged, setUserLogged] = useState({})
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -53,7 +53,11 @@ function NavbarComp() {
                                 <BsFillPersonFill className='profileIconAndCart' />
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                {userLogged ? <NavDropdown.Item className='dropDownNavOption' onClick={logOutUser}>Log Out</NavDropdown.Item>
+                                {userLogged ?
+                                    <div>
+                                        <NavDropdown.Item className='dropDownNavOption username' onClick={logOutUser}>Hello {userLogged.name}!</NavDropdown.Item>
+                                        <NavDropdown.Item className='dropDownNavOption' onClick={logOutUser}>Log Out</NavDropdown.Item>
+                                    </div>
                                     : <div>
                                         <NavDropdown.Item className='dropDownNavOption' as={Link} to='/login'>Login</NavDropdown.Item>
                                         <NavDropdown.Item className='dropDownNavOption' as={Link} to='/signUp'>Sign Up</NavDropdown.Item>
