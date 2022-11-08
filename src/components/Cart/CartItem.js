@@ -1,11 +1,12 @@
-import { deleteFromCart } from "../../DAL/serverFunctions";
+import { deleteFromCart, updateCartQuantity } from "../../DAL/serverFunctions";
 import "./cartItem.css";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Cartitem(props) {
 
-    const [quantity, setMessage] = useState(props.quantity);
+    const [price, setPrice] = useState(props.price);
+
 
     function removeItemFromCart() {
         deleteFromCart(props.id)
@@ -13,7 +14,12 @@ function Cartitem(props) {
     }
 
     function changeQuantity(e) {
-        setMessage.apply(e.target.value)
+        updateCartQuantity({
+            cartDetailsID: props.id,
+            quantity: e.target.value,
+            total_products_price: props.unit_price * e.target.value
+        })
+        setPrice(props.unit_price * e.target.value)
     }
 
 
@@ -30,11 +36,12 @@ function Cartitem(props) {
                             className="changeQuantityBtn"
                             type="number"
                             min='1'
-                            value={quantity}
-                            onChange={changeQuantity} />
+                            defaultValue={props.quantity}
+                            onChange={changeQuantity}
+                        />
                     </div>
                     <p>Size: {props.size ? props.size : 'ONE SIZE'}</p>
-                    <h6 className="cartTotalProduct">Total Price: {props.price}$</h6>
+                    <h6 className="cartTotalProduct">Total Price: {price}$</h6>
                     <p className="removeBtn" onClick={removeItemFromCart}>Remove Item</p>
                 </div>
             </div>
