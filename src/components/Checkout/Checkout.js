@@ -1,5 +1,7 @@
+import Table from 'react-bootstrap/Table';
 import React, { useState, useEffect } from 'react';
 import { getCart, getCustomerByID } from '../../DAL/serverFunctions';
+import CheckoutItem from './CheckoutItem';
 import { Form, FloatingLabel, Container, Row, Col } from 'react-bootstrap';
 import Cartitem from '../Cart/CartItem';
 
@@ -26,9 +28,13 @@ function Checkout() {
         getCustomerDetails()
     }, [cartDetails])
 
+    // const totalCartPrice = tablee.reduce(function (sum, currentObj) {
+    //     return sum + (currentObj.total_products_price)
+    // }, 0)
+
     function t() {
         console.log(cartDetails);
-        console.log(customer);
+        console.log(customer, 'customer');
     }
 
     function calcSum() {
@@ -44,6 +50,7 @@ function Checkout() {
 
     return (
         <div>
+
             <Container>
                 <Row className='mainCheckoutRow'>
                     <Col className='delieveryDetails' lg={8} md={8} sm={12}>
@@ -123,6 +130,7 @@ function Checkout() {
                             >
                                 <Form.Control type="text" placeholder="postal" />
     </FloatingLabel>*/}
+
                             <button className='submitBtnCheckout'
                                 onClick={t}> SUBMIT </button>
                         </div>
@@ -140,8 +148,9 @@ function Checkout() {
                                     price={cartD['total_products_price']}
                                     unit_price={cartD['product']['productDetails'][0]['unit_price']
                                     }></Cartitem>)}
-                            {calcSum()}
-                        </div>
+                                    {calcSum()}
+
+                                    </div>
                     </Col>
                 </Row>
             </Container>

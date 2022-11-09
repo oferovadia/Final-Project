@@ -43,9 +43,8 @@ function Cart() {
         }
     }
 
-    function test() {
-        console.log(cartDetails);
-        if (cartDetails) {
+    function goToCheckout() {
+        if (cartDetails.length) {
             handleClose()
             navigate('/checkout')
         }
@@ -61,7 +60,7 @@ function Cart() {
                     <Offcanvas.Title className='myCartTitle'>My Cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    {cartDetails.length > 1 ?
+                    {cartDetails.length > 0 ?
                         cartDetails.map((cartD, index) =>
                             <Cartitem key={index}
                                 id={cartD.id}
@@ -76,7 +75,7 @@ function Cart() {
                         : <h4 className='loginCartTitle'>You must login first</h4>}
                     <div className='cartFooter'>
                         {calcSum()}
-                        <button className='checkoutBtn' onClick={test}>Checkout</button>
+                        <button className='checkoutBtn' onClick={goToCheckout}>Checkout</button>
                     </div>
                 </Offcanvas.Body>
             </Offcanvas>
