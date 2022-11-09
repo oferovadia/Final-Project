@@ -82,7 +82,6 @@ function ProductPage() {
             return;
         }
         const details = {
-            customer_id: 23,
             product_id: product.id,
             quantity: quantity,
             total: product['productDetails'][0]['unit_price'] * quantity
