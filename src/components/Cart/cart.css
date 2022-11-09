@@ -55,6 +55,10 @@
     font-size: 25px;
 }
 
+.loginCartTitle{
+    text-align: center;
+    color: red;
+}
 
 @media (max-width: 1400px) {
     .cartIcon {

@@ -1,5 +1,5 @@
 export function getCustomerByID() {
-    return fetch("http://localhost:3100/api/customer/:id", { credentials: "include" })
+    return fetch(`http://localhost:3100/api/customer/:id`, { credentials: "include" })
         .then(response => response.json())
         .then(customers => (customers))
 }
