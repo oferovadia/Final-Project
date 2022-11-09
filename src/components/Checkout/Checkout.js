@@ -50,12 +50,11 @@ function Checkout() {
 
     return (
         <div>
-
             <Container>
                 <Row className='mainCheckoutRow'>
-                    <Col className='delieveryDetails' lg={8} md={8} sm={12}>
-                        <h3 className='checkoutH3'>Delivery Details</h3>
-                        <div className='formCheckout'>
+                    <Col className='delieveryDetailsCol' lg={8} md={8} sm={12}>
+                        <h3 className='deliveryTitle'>Delivery Details</h3>
+                        <div className='deliveryDetailsDiv'>
                             <input placeholder='First Name' value={customer ? customer.first_name : " "}></input>
                             <input placeholder='Last Name' value={customer ? customer.last_name : " "}></input>
                             <input placeholder='Email' value={customer ? customer.email : " "}></input>
@@ -64,8 +63,37 @@ function Checkout() {
                             <input placeholder='City' value={customer.city == null ? '' : customer.city}></input>
                             <input placeholder='Address' value={customer.address == null ? '' : customer.address}></input>
                             <input placeholder='Postal Code' value={customer.postal_code == null ? '' : customer.postal_code}></input>
+                        </div>
+                        <h3 className='cardTitle'>Card Details</h3>
+                        <div className='cardDetailsDiv'>
+                            <input placeholder='Card Holder Name'></input>
+                            <input placeholder='Card Number'></input>
+                            <input placeholder='Expire Date'></input>
+                            <input placeholder='CVV'></input>
+                        </div>
+                        <button className='submitBtnCheckout'
+                            onClick={t}> SUBMIT </button>
+                    </Col>
+                    <Col className='cartCheckoutCol' lg={4} md={4} sm={12}>
+                        <div className='cartCheckoutDiv'>
+                            {cartDetails.map((cartD, index) =>
+                                <Cartitem key={index}
+                                    id={cartD.id}
+                                    product_id={cartD.product_id}
+                                    size={cartD.size}
+                                    name={cartD['product']['product_name']}
+                                    photo={cartD['product']['photos'][0]['photo_source']}
+                                    quantity={cartD['quantity']}
+                                    price={cartD['total_products_price']}
+                                    unit_price={cartD['product']['productDetails'][0]['unit_price']
+                                    }></Cartitem>)}
+                            {calcSum()}
 
-                            {/*<FloatingLabel
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+            {/*<FloatingLabel
                                 controlId="floatingInput"
                                 label="First Name"
                                 className="mb-3"
@@ -130,30 +158,6 @@ function Checkout() {
                             >
                                 <Form.Control type="text" placeholder="postal" />
     </FloatingLabel>*/}
-
-                            <button className='submitBtnCheckout'
-                                onClick={t}> SUBMIT </button>
-                        </div>
-                    </Col>
-                    <Col className='cartCheckoutCol' lg={4} md={4} sm={12}>
-                        <div className='cartCheckoutDiv'>
-                            {cartDetails.map((cartD, index) =>
-                                <Cartitem key={index}
-                                    id={cartD.id}
-                                    product_id={cartD.product_id}
-                                    size={cartD.size}
-                                    name={cartD['product']['product_name']}
-                                    photo={cartD['product']['photos'][0]['photo_source']}
-                                    quantity={cartD['quantity']}
-                                    price={cartD['total_products_price']}
-                                    unit_price={cartD['product']['productDetails'][0]['unit_price']
-                                    }></Cartitem>)}
-                                    {calcSum()}
-
-                                    </div>
-                    </Col>
-                </Row>
-            </Container>
         </div >
     )
 }
