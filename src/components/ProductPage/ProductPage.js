@@ -7,6 +7,9 @@ import { useLocation, useParams } from 'react-router-dom';
 import { getProductByID } from '../../DAL/serverFunctions';
 import { postAddToCart } from '../../DAL/serverFunctions';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function ProductPage() {
 
     const [showModal, setShowModal] = useState(false);
@@ -31,6 +34,31 @@ function ProductPage() {
         getProduct()
     }, [])
 
+    function openSizeToast() {
+        toast.error('Please select size!', {
+            position: "top-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
+    function openLoginToast() {
+        toast.error('Please login!', {
+            position: "top-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
 
     function closeModal() {
         window.location.reload();
@@ -50,7 +78,7 @@ function ProductPage() {
 
     async function addToCart() {
         if (!size) {
-            alert('Hi! Please select a size')
+            openSizeToast()
             return;
         }
         const details = {
@@ -67,6 +95,8 @@ function ProductPage() {
         const itemWasAdded = await postAddToCart(details)
         if (itemWasAdded) {
             setShowModal(true)
+        } else {
+            openLoginToast()
         }
     }
 
@@ -144,6 +174,18 @@ function ProductPage() {
                 </div>
                 <hr className='breakLine'></hr>
             </Col>
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover={false}
+                theme="light"
+            />
         </Row>
     }
 

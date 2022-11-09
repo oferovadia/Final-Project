@@ -8,9 +8,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import SignUp from './components/SignUp/SignUp';
 import Customers from './components/testing/component';
 import Cart from './components/Cart/Cart';
-import Checkout from './components/Cart/Checkout';
-import MyOrders from './components/Orders/Orders';
 import ContactUs from './components/ContactUs/ContactUs';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
   return (
@@ -29,7 +28,6 @@ function App() {
         <Route path='/about' element={<About></About>} />
         <Route path='/cart' element={<Cart></Cart>} />
         <Route path='/checkout' element={<Checkout></Checkout>} />
-        <Route path='/orders' element={<MyOrders></MyOrders>} />
         <Route path='/contactUs' element={<ContactUs></ContactUs>} />
       </Routes>
     </div>
