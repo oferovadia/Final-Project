@@ -10,6 +10,7 @@ import Customers from './components/testing/component';
 import Cart from './components/Cart/Cart';
 import ContactUs from './components/ContactUs/ContactUs';
 import Checkout from './components/Checkout/Checkout';
+import Wishlist from './components/Wishlist/Wishlist';
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
         <Route path='/cart' element={<Cart></Cart>} />
         <Route path='/checkout' element={<Checkout></Checkout>} />
         <Route path='/contactUs' element={<ContactUs></ContactUs>} />
+        <Route path='/wishlist' element={<Wishlist></Wishlist>} />
+
       </Routes>
     </div>
   );

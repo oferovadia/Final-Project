@@ -1,10 +1,10 @@
 body {
   overflow-x: hidden;
   /* Hide horizontal scrollbar */
-  /* background-image: url('pic.jpg'); */
-
+  /* background-image: url('new45.jpg'); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-
 
 
 .cardProductImage {

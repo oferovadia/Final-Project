@@ -67,7 +67,7 @@ function NavbarComp() {
                         <Nav.Link>
                             <Cart></Cart>
                         </Nav.Link>
-                        <Nav.Link as={Link} to='/product2'>
+                        <Nav.Link as={Link} to='/wishlist'>
                             <FaHeart className='profileIconAndCart' id='heartIcon' />
                         </Nav.Link>
                     </div>

@@ -72,7 +72,7 @@ function Checkout() {
                             <input placeholder='CVV'></input>
                         </div>
                         <button className='submitBtnCheckout'
-                            onClick={t}> SUBMIT </button>
+                            onClick={t}> PLACE ORDER </button>
                     </Col>
                     <Col className='cartCheckoutCol' lg={4} md={4} sm={12}>
                         <div className='cartCheckoutDiv'>
