@@ -4,11 +4,12 @@ import React from 'react'
 import { IoMdHeartEmpty } from "react-icons/io";
 import { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom';
-import { getProductByID } from '../../DAL/serverFunctions';
+import { deleteFromCart, deleteFromWishlist, getItemInWishlist, getProductByID, postToWishlist } from '../../DAL/serverFunctions';
 import { postAddToCart } from '../../DAL/serverFunctions';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Toast from '../ToastContainer/Toast';
 
 function ProductPage() {
 
@@ -17,6 +18,7 @@ function ProductPage() {
     const [loading, setLoading] = useState(false)
     const [quantity, setQuantity] = useState(1)
     const [size, setSize] = useState('')
+    const [itemInWishlist, setItemInWishlist] = useState(false)
 
     const location = useLocation()
     const params = useParams()
@@ -26,13 +28,23 @@ function ProductPage() {
         async function getProduct() {
             if (location.state) {
                 setProduct(location.state.from)
+                isProductInWishlist(location.state.from.id)
             } else {
                 setProduct(await getProductByID(params.id))
+                isProductInWishlist(params.id)
             }
             setLoading(true)
         }
+
+        async function isProductInWishlist(product_id) {
+            const item = await getItemInWishlist(product_id)
+            console.log(item);
+            if (item.length === 0) {
+                setItemInWishlist(true)
+            }
+        }
         getProduct()
-    }, [])
+    }, [itemInWishlist])
 
     function openSizeToast() {
         toast.error('Please select size!', {
@@ -42,7 +54,6 @@ function ProductPage() {
             closeOnClick: true,
             pauseOnHover: false,
             draggable: true,
-            progress: undefined,
             theme: "light",
         });
     }
@@ -55,7 +66,6 @@ function ProductPage() {
             closeOnClick: true,
             pauseOnHover: false,
             draggable: true,
-            progress: undefined,
             theme: "light",
         });
     }
@@ -68,12 +78,23 @@ function ProductPage() {
 
     function incrementQuantity() {
         setQuantity(quantity + 1);
+        console.log(itemInWishlist)
     }
 
     function decrementQuantity() {
         if (quantity > 1) {
             setQuantity(quantity - 1);
         }
+    }
+
+    function addToWishlist() {
+        postToWishlist({ product_id: product.id })
+        window.location.reload();
+    }
+
+    function removeFromWishlist() {
+        deleteFromWishlist(product.id)
+        window.location.reload();
     }
 
     async function addToCart() {
@@ -169,22 +190,16 @@ function ProductPage() {
                 </div>
                 <hr className='breakLine'></hr>
                 <div className='wishListDiv'>
-                    <span className='wishlistBtn' ><IoMdHeartEmpty className='heartIconProduct' />ADD TO WISHLIST</span>
+                    {
+                        itemInWishlist ?
+                            <span className='wishlistBtn' onClick={addToWishlist} ><IoMdHeartEmpty className='heartIconProduct' />ADD TO WISHLIST</span>
+                            : <span className='wishlistBtn remove' onClick={removeFromWishlist} ><IoMdHeartEmpty className='heartIconProduct' />REMOVE FROM WISHLIST</span>
+
+                    }
                 </div>
                 <hr className='breakLine'></hr>
             </Col>
-            <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                hideProgressBar
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover={false}
-                theme="light"
-            />
+            <Toast></Toast>
         </Row>
     }
 

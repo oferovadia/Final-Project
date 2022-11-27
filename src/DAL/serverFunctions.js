@@ -87,8 +87,6 @@ export async function postAddToCart(data) {
         },
         body: JSON.stringify(data),
     });
-    console.log(JSON.stringify(data), "this is data");
-    console.log("hello");
     if (result.status === 201) {
         return true;
     }
@@ -116,4 +114,38 @@ export async function updateCartQuantity(cartDetailsID) {
     });
     console.log(cartDetailsID);
 
+}
+
+export function getWishlist() {
+    return fetch("http://localhost:3100/api/wishlist", { credentials: "include" })
+        .then(response => response.json())
+        .then(wishlist => (wishlist))
+}
+
+export async function deleteFromWishlist(product_id) {
+    fetch(`http://localhost:3100/api/wishlist/${product_id}`, {
+        method: "DELETE",
+        credentials: "include",
+    });
+}
+
+export async function postToWishlist(data) {
+    const result = await fetch("http://localhost:3100/api/wishlist/add", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+    if (result.status === 201) {
+        return true;
+    }
+    return false;
+}
+
+export function getItemInWishlist(product_id) {
+    return fetch(`http://localhost:3100/api/wishlist/${product_id}`, { credentials: "include" })
+        .then(response => response.json())
+        .then(wishlist => (wishlist))
 }
