@@ -27,7 +27,6 @@ function WishlistItem(props) {
                         <button className='removeFromWishlistBtn' onClick={removeItemFromWishlist}>Remove From Wishlist</button>
                     </Card.Body>
                 </Card>
-
             </div>
         </div>
     )
